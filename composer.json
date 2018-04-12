@@ -1,0 +1,48 @@
+{
+	"name": "sgrs",
+	"Description": "SGRS - Fatec Ourinhos",
+	"licence": "MIT",
+	"type": "project",
+	"authors": [
+        {
+            "name": "Bianca Oliveira",
+            "email": "bianca.oliveira24@fatec.sp.gov.br",
+            "role": "Developer"
+        },
+        {
+            "name": "Gabriel Cunha Ribeiro",
+            "email": "gabriel.ribeiro17@fatec.sp.gov.br",
+            "role": "Scrum Master"
+        },
+        {
+            "name": "Gustavo Luiz Barbosa da Cunha",
+            "email": "gustavo.cunha@fatec.sp.gov.br",
+            "role": "Product Owner"
+        },
+        {
+            "name": "Lucas Gabriel de Souza",
+            "email": "lucas.souza96@fatec.sp.gov.br",
+            "role": "Developer"
+        },
+        {
+            "name": "Lucas de Abreu Mendonça",
+            "email": "lucasabreu769@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Lucas Candido Granado",
+            "email": "lucasgranado@outlook.com",
+            "role": "Developer"
+        }
+    ],
+	"autoload":{
+		"psr-4":{
+			"App\\": "app/",
+			"Core\\": "core/"
+		}
+	},
+	"require": {
+		"php": ">=5.4",
+		"slim/slim": "^3.0"
+	}
+}
