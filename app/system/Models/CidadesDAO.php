@@ -12,6 +12,7 @@
 namespace App\system\Models;
 
 use App;
+use Helpers;
 
 class CidadesDAO
 {	
@@ -30,7 +31,8 @@ class CidadesDAO
 			':PAIS' => $data[3]
 		);
 
-		$this->executar($a, 'executarQuery', $var);
+		// $this->executar($a, 'executarQuery', $var);
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 	}
 
 
@@ -76,24 +78,7 @@ class CidadesDAO
 			':ID' => $id
 		);
 
-		$result = $this->executar($a, 'executarQuery', $var);
-		return $result;
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+		return $r;
 	}
-
-	
-	private function executar($a, $func, $var = array()){
-
-		$db = new App\Sql();
-
-		if(!empty($var) && !is_null($var)){
-			$result = $db->$func($a, $var);
-		} else{
-			$result = $db->$func($a);
-		}
-
-		return $result;
-
-	}
-
-
 }

@@ -11,7 +11,5 @@ function confirmarExclusao(msg, url){
 	    
 	    document.getElementById("form").submit();
 	    
-	} else{
-		alert("Você cancelou")
 	}
 };
