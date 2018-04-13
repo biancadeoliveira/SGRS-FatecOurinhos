@@ -44,7 +44,7 @@ class CidadesController
 
 		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
 
-		header("Location: http://localhost/framework/public/painel/cidade");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
 
 	}
 
@@ -55,7 +55,7 @@ class CidadesController
 
 		$result = $cidade->excluir($args['idcidade']);
 
-		header("Location: http://localhost/framework/public/painel/cidade");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
 
 		
 

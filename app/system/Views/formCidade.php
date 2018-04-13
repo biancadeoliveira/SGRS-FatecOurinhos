@@ -4,7 +4,7 @@
 	   <legend>Cadastrar cidade</legend>
 	   
 	
-		<form method="POST" action="http://localhost/framework/public/painel/cidade">
+		<form method="POST" id="form" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cidade')?>">
 			
 			<table>
 				<tr>
@@ -12,7 +12,7 @@
 					<td><label>Código Postal</label></td>
 					<td><label>Estado</label></td>
 					<td><label>Pais</label></td>
-					<td rowspan="2"><input type="submit" value="Inserir" style="height: 100%;"></td>			
+					<td rowspan="2"><input type="button" value="Inserir" style="height: 100%;" onclick="confirmarExclusao('Confirmar cadastro?');"></td>			
 				</tr>
 				<tr>
 					<td><input type="text" name="nome"></td>
@@ -53,6 +53,15 @@
 			</table>
 
 		</form>
+
+		<!-- <?php 
+
+			if(!is_null($GLOBALS['mensagem'])){
+				echo($GLOBALS['mensagem']);
+			}
+
+		?> -->
+
 	</fieldset>
 	<br><br>
 		<table class="dados">
@@ -83,7 +92,7 @@
 					<td><?php echo $value['estado'];?></td>
 					<td><?php echo $value['pais'];?></td>
 					<td class="tdBtn editar"><a href="#">Editar</a></td>
-					<td class="tdBtn excluir"><a href="http://localhost/framework/public/painel/cidade/delete/<?php echo $value['codCidade'];?>">Excluir</a></td>
+					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cidade/delete/' . $value['codCidade']);?>">Excluir</a></td>
 				</tr>
 
 		<?php

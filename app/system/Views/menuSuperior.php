@@ -3,6 +3,7 @@
 <head>
 	<title>SGRS - Painel</title>
 	<link rel="stylesheet" type="text/css" href="../assets/style.css">
+	<?php echo ("<script type='text/javascript' src='http://localhost/framework/app/system/js/validacaoForms.js'> </script>"); ?>
 </head>
 <body style="margin: 0; padding: 0;">
 
@@ -26,7 +27,7 @@
 
 				?>
 			</ul>
-			<div id="logo">
+			<div id="logo" onclick="confirmarExclusao('Teste de mensagem', '/home')">
 				SGRS
 			</div>
 		</div>

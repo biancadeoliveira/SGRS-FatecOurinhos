@@ -18,9 +18,13 @@ require '..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
 
 //Inicia o slim
-$config['urlPadrao'] = 'http://localhost/framework/public/';
 
-$app = new \Slim\App(['settings' => $config]);
+//Define a estrutura principal do sistema
+$GLOBALS['$urlpadrao'] = 'http://localhost/framework/public/';
+$GLOBALS['mensagem'] = "aa";
+
+$app = new \Slim\App();
+
 
 /*
 ** Inicio da configuração das rotas
