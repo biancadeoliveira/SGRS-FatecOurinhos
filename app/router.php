@@ -46,6 +46,7 @@ $app->get('/painel', App\system\Controllers\PainelController::class. ':GetExibir
 ** Bianca - 2018-04-07
 */
 
+//CIDADES
 $app->get('/painel/cidade', App\system\Controllers\CidadesController::class. ':GetInserir')->setName('cidade');;	//Página teste banco
 $app->post('/painel/cidade', App\system\Controllers\CidadesController::class. ':PostInserir');	//Página teste banco
 $app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesController::class. ':DeleteCidade'); //Página teste banco
@@ -53,7 +54,13 @@ $app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesCont
 // $app->get('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':GetExibir');	//Página teste banco
 // $app->post('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':PostUpdate');	//Página teste banco
 
+//CATEGORIAS
+$app->get('/painel/categorias', App\system\Controllers\CategoriaController::class. ':GetInserir');
+$app->post('/painel/categorias', App\system\Controllers\CategoriaController::class. ':PostInserir');
+$app->get('/painel/categorias/delete/{codCat}', App\system\Controllers\CategoriaController::class. ':DeleteCategoria');
 
+
+//USUARIO
 $app->get('/usuario', App\system\Controllers\UsuarioController::class. ':GetInserirUsuario');	//Página teste banco
 $app->post('/usuario', App\system\Controllers\UsuarioController::class. ':PostInserirUsuario');	//Página teste banco
 

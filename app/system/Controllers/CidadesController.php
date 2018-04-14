@@ -14,11 +14,7 @@ use App\system\Models;
 class CidadesController
 {
 
-	private $teste = "Bianca";
-
 	public function GetInserir($request, $response, $args){
-		
-		$this->teste;
 
 		$cidade = new \App\system\Models\Cidades();
 		$cidades = $cidade->select();

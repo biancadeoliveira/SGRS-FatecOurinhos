@@ -45,7 +45,7 @@ class CidadesDAO
 			':ESTADO' => $data[0]
 		);
 
-		$this->executar($a, 'executarSelect', $var);
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);
 	}
 
 
@@ -53,7 +53,7 @@ class CidadesDAO
 
 		$a = 'SELECT * FROM cep';
 
-		$result = $this->executar($a, 'executarSelect');
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');
 		return $result;
 	}
 
@@ -63,8 +63,7 @@ class CidadesDAO
 	public function select(){
 
 		$a = 'SELECT * FROM cidade ORDER BY nome';
-
-		$result = $this->executar($a, 'executarSelect');
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');
 		return $result;
 	}
 
