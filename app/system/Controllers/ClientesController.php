@@ -19,6 +19,8 @@ class ClientesController
 		$cliente = new \App\system\Models\Clientes();
 		$clientes = $cliente->select();
 
+		//var_dump($clientes);
+
 		PainelController::GetExibir('formCliente', $clientes);
 	}
 

@@ -15,8 +15,6 @@ use Helpers;
 
 class ClientesDAO
 {	
-
-
 	//Método para inserir um novo cliente
 	public function insert($data){
 
@@ -60,10 +58,10 @@ class ClientesDAO
 	//Método para excluir uma cidade
 	public function excluir($id){
 
-		$a = 'DELETE FROM cliente where codCpf = :ID';
+		$a = 'DELETE FROM cliente where cpf = :CPF';
 
 		$var = array(
-			':ID' => $id
+			':CPF' => $id
 		);
 
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);

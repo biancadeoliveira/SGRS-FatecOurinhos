@@ -17,17 +17,34 @@ class PainelController
 		// $c = $path_parts['dirname'];
 
 
-
+		//*****Gerente*****\\
 		$teste = array (
+			'Cidades',
+			'Usuários',
+			'Clientes',
+			'Categorias',
+			'Produtos',
 			'Mesas',
-			'Pedidos',
 			'Reservas',
+			'Pedidos',
 			'Pagamentos',
-			'cidade'
-
+			'Relatórios'
 		);
 
-		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
+		//*****Garçom*****\\
+		// $teste = array (
+		// 	'Pedidos',
+		// )
+		//*****Caixa*****\\
+		// $teste = array (
+		// 	'Clientes',
+		// 	'Mesas',
+		// 	'Reserva',
+		// 	'Pedidos',
+		// 	'Pagamentos'
+		// );
+
+		$c = 'C:/xampp/htdocs/SGRS-FatecOurinhos/app/system/Views/';
 		include_once($c . 'menuSuperior.php');
 
 
