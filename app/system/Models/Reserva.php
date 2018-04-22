@@ -3,7 +3,7 @@
 ** Author: Lucas Granado
 ** Date: 2018-04-14
 **
-** Classe CardapioDAO
+** Classe Reserva
 ** Implementa os métodos de insersão, busca e desabilitação de objetos da classe reserva
 */
 
