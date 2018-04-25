@@ -35,4 +35,18 @@ class Validacao
 		return false;
 
 	}	
+
+
+	//Recebe o nivel de acesso da classe, e compara com o nivel de acesso do usuário.
+	public static function validarLogin($nivel){
+		$login = new \App\system\Models\Login();
+		$r = $login->validarLogin($nivel);
+
+		if ($r == 1) {
+			header("Location: " . $GLOBALS['$urlpadrao'] . "app/login?status=2");
+		} else if($r == 2){
+			header("Location: " . $GLOBALS['$urlpadrao'] . "erro");
+		}
+	}
+
 }

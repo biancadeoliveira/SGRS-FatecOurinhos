@@ -27,9 +27,11 @@ class LoginController
 		if (isset($_GET['status'])) {
 			$s = $_GET['status'];	
 			if ($s == 0) {
-				echo "Erro ao efetuar login.<br>Tente novamente.";
-			} elseif($s == 1){
 				echo "DESCONECTADO<br>Bom descanso.";
+			} elseif($s == 1){
+				echo "Erro ao efetuar login.<br>Tente novamente.";
+			} elseif($s == 2){
+				echo "Erro de validação";
 			}
 		}
 
@@ -45,7 +47,7 @@ class LoginController
 	public function finalizarSessao(){
 		session_start();
 		$_SESSION = array();
-		header("Location: " . $GLOBALS['$urlpadrao'] . "app/login?status=1");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "app/login?status=0");
 	}
 
 	function validarLogin(){

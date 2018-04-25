@@ -44,11 +44,15 @@ class PainelController
 		// 	'Pagamentos'
 		// );
 
-		$c = 'C:/xampp/htdocs/SGRS-FatecOurinhos/app/system/Views/';
+		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
 		include_once($c . 'menuSuperior.php');
 
 
 		//include_once('..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'system.php');
 		include_once($c . $arq . '.php');
+	}
+
+	public function erro(){
+		echo "Erro, acesso negado";
 	}
 }
