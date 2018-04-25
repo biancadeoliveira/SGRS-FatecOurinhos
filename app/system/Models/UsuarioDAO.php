@@ -39,14 +39,18 @@ class UsuarioDAO
 	}
 
 
+	public function buscarUsuarioCPF($cpf){
 
-	public function executar($a, $var, $func){
+		$a = 'SELECT cpf, nome, senha, funcao FROM usuario WHERE cpf = :CPF';
 
-		$db = new App\Sql();
+		$var = array(
+			':CPF' => $cpf
+		);
 
-		$db->$func($a, $var);
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);
+
+		return $result;
 
 	}
-
 
 }

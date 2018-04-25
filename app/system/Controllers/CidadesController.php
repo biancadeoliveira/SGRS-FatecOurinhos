@@ -16,6 +16,9 @@ class CidadesController
 
 	public function GetInserir($request, $response, $args){
 
+		\App\system\Models\Validacao::validarLogin(2);
+
+
 		$cidade = new \App\system\Models\Cidades();
 		$cidades = $cidade->select();
 
@@ -23,6 +26,8 @@ class CidadesController
 	}
 
 	public function PostInserir($request, $response, $args){
+
+		\App\system\Models\Login::validarLogin(2);
 
 		$nome = $_POST['nome'];
 		$codPostal = $_POST['codPostal'];
@@ -46,8 +51,9 @@ class CidadesController
 
 	public function DeleteCidade($request, $response, $args){
 
-		$cidade = new \App\system\Models\Cidades();
+		\App\system\Models\Login::validarLogin(2);
 
+		$cidade = new \App\system\Models\Cidades();
 
 		$result = $cidade->excluir($args['idcidade']);
 

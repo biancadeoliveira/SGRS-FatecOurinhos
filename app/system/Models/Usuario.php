@@ -29,9 +29,11 @@ class Usuario
 
 
 	//Método construtor
-	public function __construct($dados){
+	public function __construct($dados = array()){
 
-		$this->setDados($dados);
+		if(!empty($dados) && !is_null($dados)){
+			$this->setDados($dados);
+		}
 
 	}
 	//CPF
@@ -206,7 +208,7 @@ class Usuario
 
 
 		if ($r == true) {
-		 	echo "Erro! Existem valores em branco";
+		 	// echo "Erro! Existem valores em branco";
 		} else {
 		 	$dao = new \App\system\Models\UsuarioDAO();
 		 	$dao->insert($dados);
@@ -214,6 +216,26 @@ class Usuario
 
 	}
 
+
+	//funao para buscar um determinado usuário pelo cpf
+	public function buscarCPF($cpf){
+
+		$dao = new \App\system\Models\UsuarioDAO();
+		
+		$result = $dao->buscarUsuarioCPF($cpf);
+
+		if (count($result) == 1) {
+			$this->setCpf($result[0]['cpf']);
+			$this->setNome($result[0]['nome']);
+			$this->setSenha($result[0]['senha']);
+			$this->setFuncao($result[0]['funcao']);
+			return true;
+		} else {
+			return false;
+		}
+
+
+	}
 
 	//Função para verificar valores nulos
 	private function verificarNull(){
