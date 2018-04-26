@@ -20,7 +20,7 @@ require '..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 //Inicia o slim
 
 //Define a estrutura principal do sistema
-$GLOBALS['$urlpadrao'] = 'http://localhost/framework/public/';
+$GLOBALS['$urlpadrao'] = 'http://localhost/sgrs/public/';
 $GLOBALS['mensagem'] = "aa";
 
 $app = new \Slim\App();
@@ -58,6 +58,13 @@ $app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesCont
 $app->get('/painel/categorias', App\system\Controllers\CategoriaController::class. ':GetInserir');
 $app->post('/painel/categorias', App\system\Controllers\CategoriaController::class. ':PostInserir');
 $app->get('/painel/categorias/delete/{codCat}', App\system\Controllers\CategoriaController::class. ':DeleteCategoria');
+
+
+//RESERVA
+
+$app->get('/painel/Reserva', App\system\Controllers\ReservaController::class. ':GetInserirReserva');
+$app->post('/painel/Reserva', App\system\Controllers\ReservaController::class. ':PostInserirReserva');
+$app->get('/painel/Reserva/delete/{codReserva}', App\system\Controllers\ReservaController::class. ':DeleteReserva');
 
 
 //USUARIO

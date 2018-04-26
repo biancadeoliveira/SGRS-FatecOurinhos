@@ -19,6 +19,8 @@ class UsuarioController
 
 public function GetInserirUsuario(){
 
+		\App\system\Models\Validacao::validarLogin(1);
+
 
 		$cidadesDAO = new \App\system\Models\CidadesDAO();
 
@@ -28,7 +30,7 @@ public function GetInserirUsuario(){
 		$cidades = $cidadesDAO->select();
 		//$cidades = json_encode( $cidades );
 		echo('
-			<form method="POST" action="http://localhost/framework/public/usuario">
+			<form method="POST" action="http://localhost/sgrs/public/usuario">
 				<label>CPF</label>
 				<input type="text" name="cpf">
 				
@@ -102,6 +104,9 @@ public function GetInserirUsuario(){
 
 
 public function PostInserirUsuario(){
+
+	\App\system\Models\Validacao::validarLogin(1);
+
 
 		$cpf = $_POST['cpf'];
 		$nome = $_POST['nome'];

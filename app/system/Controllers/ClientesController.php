@@ -16,6 +16,9 @@ class ClientesController
 
 	public function GetInserir($request, $response, $args){
 
+		\App\system\Models\Validacao::validarLogin(2);
+
+
 		$cliente = new \App\system\Models\Clientes();
 		$clientes = $cliente->select();
 
@@ -25,6 +28,9 @@ class ClientesController
 	}
 
 	public function PostInserir($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(2);
+
 
 		$cpf = $_POST['cpf'];
 		$nome = $_POST['nome'];
@@ -49,6 +55,9 @@ class ClientesController
 	}
 
 	public function DeleteCliente($request, $response, $args){
+		
+		\App\system\Models\Validacao::validarLogin(2);
+
 
 		$cliente = new \App\system\Models\Clientes();
 

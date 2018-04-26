@@ -15,6 +15,9 @@ class CategoriaController
 {
 
 	public function GetInserir($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
+
 	
 		$cat = new \App\system\Models\Categoria();
 		$cats = $cat->select();
@@ -35,6 +38,9 @@ class CategoriaController
 	}
 
 	public function PostInserir($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
+
 
 		$codCategoria = $_POST['codCategoria'];
 		$nome = $_POST['nome'];

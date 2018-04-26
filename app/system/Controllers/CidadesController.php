@@ -34,16 +34,12 @@ class CidadesController
 		$estado = $_POST['estado'];
 		$pais = $_POST['pais'];
 
-		//$dados = array('Paulistania', '1234578', 'SP', 'Brasil');
-
 		$dados = array($nome, $codPostal, $estado, $pais);
 
 
 		$cidade = new \App\system\Models\Cidades($dados);
 
 		$result = $cidade->inserir();
-
-		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
 
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
 
