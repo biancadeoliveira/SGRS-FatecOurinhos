@@ -80,6 +80,7 @@ class Login
 				session_start();
 				$_SESSION['user'] = $this->getCPF();
 				$_SESSION['funcao'] = $this->getFuncao();
+				header("Location: " . $GLOBALS['$urlpadrao'] . "painel");
 			} else {
 				//Caso o cpf esteja cadastrado no sistema mas as senhas não estejam iguais, a variavel $result passa a ser false
 				$result = false;

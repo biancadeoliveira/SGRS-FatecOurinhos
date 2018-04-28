@@ -11,7 +11,15 @@ namespace App\system\Controllers;
 
 class PainelController
 {
-	public static function GetExibir($arq, $dados = array()){
+
+	public function Home(){
+
+
+		PainelController::GetExibir('Home');
+
+	}
+
+	public static function GetExibir($arq, $dados = null){
 		// $path = $_SERVER['SCRIPT_FILENAME'];
 		// $path_parts = pathinfo($path);
 		// $c = $path_parts['dirname'];
@@ -63,7 +71,7 @@ class PainelController
 
 
 		//include_once('..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'system.php');
-		if(isset($arq)){
+		if(!is_null($arq) || !isset($arq)){
 			include_once($c . $arq . '.php');
 		}
 	}

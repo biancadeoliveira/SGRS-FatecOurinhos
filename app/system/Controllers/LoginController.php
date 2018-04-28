@@ -24,22 +24,16 @@ class LoginController
 
 		
 
-		if (isset($_GET['status'])) {
+		if (isset($_GET['status'])){
 			$s = $_GET['status'];	
 			if ($s == 0) {
 				echo "DESCONECTADO<br>Bom descanso.";
-			} elseif($s == 1){
+			} else if($s == 1){
 				echo "Erro ao efetuar login.<br>Tente novamente.";
-			} elseif($s == 2){
+			} else if($s == 2){
 				echo "Erro de validação";
 			}
 		}
-
-		echo "<form method='post' action='http://localhost/framework/public/app/login'>
-			 	<input type='text' name='login' placeholder='CPF: xxx.xxx.xxx-xx'><br>
-			  	<input type='password' name='senha' placeholder='Senha'><br>
-			  	<input type='submit' value='Entrar'>
-			  </form>";
 
 	}
 
