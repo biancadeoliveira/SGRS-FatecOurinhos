@@ -22,18 +22,22 @@ class LoginController
 		session_start();
 		$_SESSION = array();
 
-		
+		$msg = "";
 
 		if (isset($_GET['status'])){
 			$s = $_GET['status'];	
 			if ($s == 0) {
-				echo "DESCONECTADO<br>Bom descanso.";
+				$msg = "DESCONECTADO<br>Bom descanso.";
 			} else if($s == 1){
-				echo "Erro ao efetuar login.<br>Tente novamente.";
+				$msg = "Erro ao efetuar login.<br>Tente novamente.";
 			} else if($s == 2){
-				echo "Erro de validação";
+				$msg = "Erro de validação";
 			}
 		}
+
+		$dados = array($msg);
+
+		PainelController::GetExibirLogin('Login', $dados);
 
 	}
 
