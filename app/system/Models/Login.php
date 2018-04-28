@@ -137,7 +137,7 @@ class Login
 	*/
 	private function nivelUsuario(){
 
-		switch ($_SESSION['funcao']) {
+		switch (utf8_encode($_SESSION['funcao'])) {
 			case 'Caixa':
 				$n = 2;
 				break;

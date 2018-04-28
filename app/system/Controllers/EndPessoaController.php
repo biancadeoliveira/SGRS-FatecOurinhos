@@ -20,7 +20,7 @@ public function GetInserir($request, $response, $args){
 		$endPessoas = $endPessoa->select();
 
 		echo('
-			<form method="POST" action="http://localhost/sgrs/public/EndPessoa">
+			<form method="POST" action="' . $GLOBALS['$urlpadrao'] .'EndPessoa">
 				
 				<label>CEP</label>
 				<input type="number" name="cep">

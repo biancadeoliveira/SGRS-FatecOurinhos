@@ -10,7 +10,7 @@
 	   	 }
 	   </style>
 	
-		<form method="POST" id="form" action="<?php echo ('http://localhost/sgrs/public/painel/item')?>">
+		<form method="POST" id="form" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/item')?>">
 			
 			<table>
 				<tr>

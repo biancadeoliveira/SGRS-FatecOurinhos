@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>SGRS - Painel</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../assets/style.css">
 	<?php echo ("<script type='text/javascript' src='http://localhost/framework/app/system/js/validacaoForms.js'> </script>"); ?>
 </head>
@@ -19,10 +21,9 @@
 					
 					$param = "'$method','$value'";
 					
-
-					echo ('<li onclick="request('.$param.');">');
-					echo "$value <br>";
-					echo '</li>';
+					echo ('<a href="'.$value.'"><li>');
+					echo "$key <br>";
+					echo '</li></a>';
 				}
 
 				?>

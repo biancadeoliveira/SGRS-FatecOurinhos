@@ -16,40 +16,56 @@ class PainelController
 		// $path_parts = pathinfo($path);
 		// $c = $path_parts['dirname'];
 
+		if(!isset($_SESSION)){
+			session_start();
+		}
+		// echo ($_SESSION('funcao'));
 
-		//*****Gerente*****\\
-		$teste = array (
-			'Cidades',
-			'Usuários',
-			'Clientes',
-			'Categorias',
-			'Produtos',
-			'Mesas',
-			'Reservas',
-			'Pedidos',
-			'Pagamentos',
-			'Relatórios'
-		);
+		$teste = array();
 
-		//*****Garçom*****\\
-		// $teste = array (
-		// 	'Pedidos',
-		// )
-		//*****Caixa*****\\
-		// $teste = array (
-		// 	'Clientes',
-		// 	'Mesas',
-		// 	'Reserva',
-		// 	'Pedidos',
-		// 	'Pagamentos'
-		// );
+		$func = utf8_encode($_SESSION['funcao']);
+
+		if ($func == 'Caixa') {
+
+			$teste = array (
+					'Clientes' => '#',
+					'Mesas' => '#',
+					'Reserva' => '#',
+					'Pedidos' => '#',
+					'Pagamentos' => '#',
+					'Sair' => 'http://localhost/framework/public/app/logout'
+			);
+		} else if($func == 'Gerente'){
+
+			$teste = array (
+				'Cidades' => 'http://localhost/framework/public/painel/cidade',
+				'Usuários' => 'http://localhost/framework/public/painel/usuario',
+				'Clientes' => 'http://localhost/framework/public/painel/clientes',
+				'Categorias' => 'http://localhost/framework/public/painel/categorias',
+				'Produtos' => 'http://localhost/framework/public/painel/produtos',
+				'Mesas' => 'http://localhost/framework/public/painel/mesas',
+				'Reservas' => 'http://localhost/framework/public/reservas',
+				'Pedidos' => 'http://localhost/framework/public/painel/pedidos',
+				'Pagamentos' => '#',
+				'Relatórios' => '#',
+				'Sair' => 'http://localhost/framework/public/app/logout'
+			);		
+
+		} else if($func == 'Garçom'){
+			$teste = array (
+					'Pedidos' => '#',
+					'Sair' => 'http://localhost/framework/public/app/logout'
+				);
+		}
 
 		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
 		include_once($c . 'menuSuperior.php');
 
 
 		//include_once('..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'system.php');
-		include_once($c . $arq . '.php');
+		if(isset($arq)){
+			include_once($c . $arq . '.php');
+		}
 	}
 
 	public function erro(){

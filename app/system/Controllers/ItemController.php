@@ -48,7 +48,7 @@ class ItemController
 
 		//echo '<script type="text/javascript">window.location.href = "/sgrs/public/painel/cidade";</script>';
 
-		header("Location: http://localhost/sgrs/public/painel/item");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/item");
 
 	}
 
@@ -59,7 +59,7 @@ class ItemController
 
 		$result = $item->excluir($args['codItem']);
 
-		header("Location: http://localhost/sgrs/public/painel/item");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/item");
 
 		
 
