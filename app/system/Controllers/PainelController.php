@@ -19,13 +19,13 @@ class PainelController
 
 	}
 
-	public static function GetExibirLogin($arq, $dados = null){
+	public static function GetExibirLogin($arq, $dados = array()){
 
 		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
 		include_once($c . $arq . '.php');
 	}	
 
-	public static function GetExibir($arq, $dados = null){
+	public static function GetExibir($arq, $dados = array()){
 		// $path = $_SERVER['SCRIPT_FILENAME'];
 		// $path_parts = pathinfo($path);
 		// $c = $path_parts['dirname'];

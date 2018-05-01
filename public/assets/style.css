@@ -44,7 +44,7 @@ table{
 
 .dados{
 	float: left;
-	width: 70%;
+	width: 100%;
 	box-sizing: border-box;
 }
 
@@ -156,8 +156,115 @@ table{
 	background-color: #252525; 
 	position: fixed;
 	text-align: right;
+	z-index: 100;
 }
 
 .topSair {
 	color: #fff;
+}
+
+/*Titula da página*/
+
+#page-title{
+	background-color: #efefef;
+	width: 90%;
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	font-size: .6em;
+	text-transform: uppercase;
+	margin-bottom: 20px; 
+}
+
+
+/*CSS Cadastro*/
+
+.cadastro{
+	margin-bottom: 40px;
+	background-color: #efefef;
+    padding: 15px 0;
+}
+
+.title-cadastro{
+	width: 80%;
+	margin: 0 auto;
+	display: table;
+	border-bottom: 20px solid #a91d02;
+	color: #a91d02;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.form-cadastro{
+	width: 75%;
+	padding: 5px;
+	border: 1px solid #d1d1d1;
+	text-align: center;	
+	margin: 0 auto;
+	box-sizing: border-box;
+	background-color: #ffffffb8;
+}
+
+.form-cadastro input, .form-cadastro select, .form-cadastro textarea{
+	width: 90%;
+	padding: 5px;
+	margin: 5px 10px;
+}
+
+.submit-cadastro input{
+	width: 80%;
+	margin: 0 auto;
+	display: table;
+	padding: 8px;
+	color: #fff;
+	background-color: #a91d02;
+	border: none;
+	cursor: pointer;
+}
+
+/*CSS Guias*/
+
+.info{
+	width: 70%;
+	display: table;
+	margin: 0 auto;
+}
+
+.tab-title{
+	box-sizing: border-box;
+	text-align: center;
+	background: #252525;
+	padding: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.tab-title h3{
+	padding: 20px;
+	margin: 0;
+	font-weight: normal;
+	background-color: #a91d026b;
+	color: #fff;
+}
+
+.tb-t-active h3{
+	background: #a91d02;
+	font-weight: normal!important;
+	text-transform: uppercase;
+}
+
+.table{
+	display: none;
+	margin: 0 auto
+	box-sizing: border-box;
+}
+
+.guia{
+	width: 70%;
+	display: table;
+	margin: 0 auto;
+}
+
+.active{
+	display: block;
 }

@@ -44,7 +44,7 @@ use App;
 
             $a = 'SELECT * FROM produto';
 
-            $result = $this->executar($a, 'executarSelect');
+            $result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');  
             return $result;
         }
 
@@ -53,7 +53,8 @@ use App;
 
             $a = 'SELECT codProduto, codCategoria, numProduto, nome, descricao, preco FROM produto ORDER BY nome';
 
-            $result = $this->executar($a, 'executarSelect');
+            $result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');  
+
             return $result;
         }
 

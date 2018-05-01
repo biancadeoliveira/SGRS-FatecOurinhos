@@ -22,19 +22,15 @@ class CategoriaController
 		$cat = new \App\system\Models\Categoria();
 		$cats = $cat->select();
 
-		PainelController::GetExibir('formCategoria', $cats);
+		$prod = new \App\system\Models\Produto();
+		$prods = $prod->selectProduto();
 
-		echo "
-		<form method='POST' action='http://localhost/framework/public/painel/categorias'>
-			<input type='text' name='codCategoria'><Br>
-			<input type='text' name='nome'><Br>
-			<input type='text' name='departamento'><Br>
+		$dados = array(
+			'Categorias' => $cats,
+			'Produtos' => $prods
+		);
 
-			<input type='submit' value='Enviar'><Br>
-		</form>
-		";
-
-
+		PainelController::GetExibir('paginaProdutos', $dados);
 	}
 
 	public function PostInserir($request, $response, $args){
