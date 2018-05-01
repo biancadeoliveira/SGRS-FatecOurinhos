@@ -9,7 +9,7 @@
 
 namespace App\system\Models;
 use App\system\Models;
-class Categoria
+class Reserva
 {
 	
 	private $codReserva;
@@ -23,7 +23,8 @@ class Categoria
 	public $camposNull = array(
 		'1', '1', '1', '1', '1', '1'
 	);	
-	function __construct($dados = array()){
+
+	public function __construct($dados = array()){
 		
 		if(!empty($dados) && !is_null($dados)){
 			$this->setDados($dados);
@@ -65,8 +66,8 @@ class Categoria
 	public function sethora($dado){
 		$this->hora($dado);
 	}
-	public function getcpfCliente(){
-		return $this->cpfCliente;
+	public function getHora(){
+		return $this->hora;
 	}
 	
 	public function setestado($dado){

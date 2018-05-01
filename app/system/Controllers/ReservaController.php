@@ -11,9 +11,10 @@ namespace App\system\Controllers;
 use App\system\Models;
 
 
-class ReservaController{
+class ReservaController
+{
 
-public function GetInserirReserva($request, $response, $args){
+	public function GetInserirReserva($request, $response, $args){
 
 		\App\system\Models\Validacao::validarLogin(1);
 
@@ -21,42 +22,9 @@ public function GetInserirReserva($request, $response, $args){
 		$res = new \App\system\Models\Reserva();
 		$reserv = $res->select();
 
+		PainelController::GetExibir('paginaReserva', $reserv);
+	}
 
-		echo('<form method="POST" action="http://localhost/sgrs/public/Reserva">
-				<label>CPF do cliente</label>
-				<input type="number" name="cpfCliente">
-				
-				<br>
-
-				<label>Codigo da mesa</label>
-				<input type="number" name="codMesa">
-				
-				<br>
-
-				<label>Data da reserva</label>
-				<input type="date" name="dataReserva">
-				
-				<br>
-
-				<label>Hora</label>
-				<input type="time" name="hora">
-				
-				<br>
-
-				<label>Estado</label>
-				<select name="estado">
-					<option value="1">Ativo</option>
-					<option value="0">Inativo</option>
-				</select>	
-				
-				
-				<br>
-				
-				
-');
-
-
-		}
 
 		public function PostInserirReserva($request, $response, $args){
 

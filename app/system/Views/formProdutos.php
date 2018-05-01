@@ -4,7 +4,7 @@
 	</div>
 	<div class="form-cadastro">
 
-		<form method="POST" action="http://localhost/sgrs/public/produto">
+		<form method="POST" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/produto')?>">
 				<input placeholder="Código do Produto" type="text" name="codProduto">
 			    <br>
 				<select name="codCategoria">

@@ -12,7 +12,7 @@ use App;
 class reservaDAO
 {
 		//Método para insersão de uma nova reserva.
-		public fuction insert($data){
+		public function insert($data){
 		
 			$query = 'INSERT INTO reserva (codReserva, cpfCliente, codMesa, dataReserva, hora, estado) VALUES (:CODRESERVA, :CPFCLIENTE, :CODMESA, :DATARESERVA, :HORA, :ESTADO)';
 
@@ -31,7 +31,7 @@ class reservaDAO
 }		
 
 		//Método de exclusão de uma reserva
-		public fuction delete($cod){
+		public function delete($cod){
 		$query = 'DELETE FROM reserva WHERE codReserva =:CODRESERVA';
 		$var = array(
 			':CODRESERVA' => $cod
