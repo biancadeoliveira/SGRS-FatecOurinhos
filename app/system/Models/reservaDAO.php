@@ -8,7 +8,10 @@
 */
 
 namespace App\system\Models;
+
 use App;
+use Helpers;
+
 class reservaDAO
 {
 		//Método para insersão de uma nova reserva.

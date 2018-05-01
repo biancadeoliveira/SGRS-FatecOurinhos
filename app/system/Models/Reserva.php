@@ -33,7 +33,7 @@ class Reserva
 	
 	//Get's e Set's
 	public function setCcodReserva($dado){
-		$this->codReserva($dado);
+		$this->codReserva = $dado;
 	}
 	public function getcodReserva(){
 		return $this->codReserva;
@@ -41,7 +41,7 @@ class Reserva
 	
 	
 	public function setcpfCliente($dado){
-		$this->cpfCliente($dado);
+		$this->cpfCliente = $dado;
 	}
 	public function getcpfCliente(){
 		return $this->cpfCliente;
@@ -49,7 +49,7 @@ class Reserva
 	
 	
 	public function setcodMesa($dado){
-		$this->codMesa($dado);
+		$this->codMesa = $dado;
 	}
 	public function getcodMesa(){
 		return $this->codMesa;
@@ -57,21 +57,21 @@ class Reserva
 	
 	
 	public function setdataReserva($dado){
-		$this->cpfCliente($dado);
+		$this->cpfCliente = $dado;
 	}
 	public function getdataReserva(){
 		return $this->cpfCliente;
 	}
 	
 	public function sethora($dado){
-		$this->hora($dado);
+		$this->hora = $dado;
 	}
 	public function getHora(){
 		return $this->hora;
 	}
 	
 	public function setestado($dado){
-		$this->estado($dado);
+		$this->estado = $dado;
 	}
 	public function getestado(){
 		return $this->estado;
@@ -86,12 +86,12 @@ class Reserva
 	
 	
 	public function setDados($dados){
-		$this->cpfCliente = $dados[0];
-		$this->codMesa = $dados[1];
-		$this->dataReserva = $dados[2];
-		$this->codReserva = $dados[3];		
-		$this->estado = $dados[4];
-		$this->hora = $dados[5];
+		$this->cpfCliente(dados[0]);
+		$this->codMesa($dados[1]);
+		$this->dataReserva($dados[2]);
+		$this->codReserva($dados[3]);		
+		$this->estado($dados[4]);
+		$this->hora($dados[5]);
 	}
 	public function getDados(){		
 		$dados = array(

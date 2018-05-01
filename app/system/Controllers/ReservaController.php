@@ -43,7 +43,7 @@ class ReservaController
 		$res = new \App\system\Models\Reserva($dados);
 		$result = $res->inserirReserva();
 
-		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
+		// \Core\Request::newR('GET', 'http://localhost/SGRS-FatecOurinhos/public/painel/cidade');
 		header("Location: " . $GLOBALS['$urlpadrao'] . "Reserva");
 
 	}
