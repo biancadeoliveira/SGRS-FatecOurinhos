@@ -1,24 +1,15 @@
-<div class="content">
-
-	<fieldset>
-	   <legend>Cadastrar cidade</legend>
-	   
-	
+<div class="cadastro">
+	<div class="title-cadastro">
+		Cadastrar cidade
+	</div>
+	<div class="form-cadastro">
+	      
 		<form method="POST" id="form" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cidade')?>">
-			
-			<table>
-				<tr>
-					<td><label>Nome da cidade</label></td>
-					<td><label>Código Postal</label></td>
-					<td><label>Estado</label></td>
-					<td><label>Pais</label></td>
-					<td rowspan="2"><input type="button" value="Inserir" style="height: 100%;" onclick="confirmarExclusao('Confirmar cadastro?');"></td>			
-				</tr>
-				<tr>
-					<td><input type="text" name="nome"></td>
-					<td><input type="number" name="codPostal" placeholder="00000000"></td>
-					<td><select type="text" name="estado">
-							<option value="">Selecionar</option>
+		
+					<input placeholder="Nome da cidade" type="text" name="nome">
+					<input placeholder="Código postal" type="number" name="codPostal">
+					<select type="text" name="estado">
+							<option value="">Selecionar Estado</option>
 							<option value="AC">AC</option>
 							<option value="AL">AL</option>
 							<option value="AP">AP</option>
@@ -47,29 +38,11 @@
 							<option value="SE">SE</option>
 							<option value="TO">TO</option>
 						</select>
-					</td>
-					<td><input type="text" name="pais" value="Brasil"></td>
-				</tr>
-			</table>
-
-		</form>
-
-		<!-- <?php 
-
-			if(!is_null($GLOBALS['mensagem'])){
-				echo($GLOBALS['mensagem']);
-			}
-
-		?> -->
-
-	</fieldset>
-	<br><br>
-		
-
-		<div class="buttons">
-			<h3>Cadastrar</h3>
-			<h3>Buscar</h3>
+					<input placeholder="País" type="text" name="pais" value="Brasil">
 		</div>
-	
+		<div class="submit-cadastro">
+					<input type="button" value="Inserir" style="height: 100%;" onclick="confirmarExclusao('Confirmar cadastro?');">
 
+				</form>
+		</div>
 </div>

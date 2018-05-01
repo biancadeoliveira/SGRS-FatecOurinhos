@@ -24,7 +24,7 @@ class ClientesController
 
 		//var_dump($clientes);
 
-		PainelController::GetExibir('formCliente', $clientes);
+		PainelController::GetExibir('paginaClientes', $clientes);
 	}
 
 	public function PostInserir($request, $response, $args){
@@ -42,15 +42,13 @@ class ClientesController
 
 		$dados = array($cpf, $nome, $rg, $telefone, $email);
 
-	var_dump($dados);
-	echo "<br>===================<br>";
 		$cliente = new \App\system\Models\Clientes($dados);
 
 		$result = $cliente->inserir();
 
 		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cliente');
 
-//		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cliente");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
 
 	}
 

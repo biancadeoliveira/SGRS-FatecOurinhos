@@ -22,7 +22,7 @@ class CidadesController
 		$cidade = new \App\system\Models\Cidades();
 		$cidades = $cidade->select();
 
-		PainelController::GetExibir('formCidade', $cidades);
+		PainelController::GetExibir('paginaEnderecos', $cidades);
 	}
 
 	public function PostInserir($request, $response, $args){

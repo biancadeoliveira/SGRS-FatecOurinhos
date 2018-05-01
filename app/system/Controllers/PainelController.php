@@ -42,21 +42,23 @@ class PainelController
 		if ($func == 'Caixa') {
 
 			$teste = array (
-					'Clientes' => '#',
-					'Mesas' => '#',
-					'Reserva' => '#',
-					'Pedidos' => '#',
-					'Pagamentos' => '#',
-					'Sair' => 'http://localhost/framework/public/app/logout'
+				'HOME' => 'http://localhost/framework/public/painel',
+				'Endereços' => 'http://localhost/framework/public/painel/cidade',
+				'Clientes' => 'http://localhost/framework/public/painel/clientes',
+				'Mesas' => 'http://localhost/framework/public/painel/mesas',
+				'Reservas' => 'http://localhost/framework/public/reservas',
+				'Pedidos' => '#',
+				'Pagamentos' => '#',
+				'Sair' => 'http://localhost/framework/public/app/logout'
 			);
 		} else if($func == 'Gerente'){
 
 			$teste = array (
-				'Cidades' => 'http://localhost/framework/public/painel/cidade',
+				'HOME' => 'http://localhost/framework/public/painel',
+				'Endereços' => 'http://localhost/framework/public/painel/cidade',
 				'Usuários' => 'http://localhost/framework/public/painel/usuario',
 				'Clientes' => 'http://localhost/framework/public/painel/clientes',
-				'Categorias' => 'http://localhost/framework/public/painel/categorias',
-				'Produtos' => 'http://localhost/framework/public/painel/produtos',
+				'Cardápio' => 'http://localhost/framework/public/painel/categorias',
 				'Mesas' => 'http://localhost/framework/public/painel/mesas',
 				'Reservas' => 'http://localhost/framework/public/reservas',
 				'Pedidos' => 'http://localhost/framework/public/painel/pedidos',

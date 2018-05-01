@@ -29,76 +29,7 @@ public function GetInserirUsuario(){
 
 		$cidades = $cidadesDAO->select();
 		//$cidades = json_encode( $cidades );
-		echo('
-			<form method="POST" action="http://localhost/sgrs/public/usuario">
-				<label>CPF</label>
-				<input type="text" name="cpf">
-				
-				<br>
-
-				<label>Nome</label>
-				<input type="text" name="nome">
-				
-				<br>
-
-				<label>Senha</label>
-				<input type="text" name="senha">
-				
-				<br>
-
-				<label>data de nascimento</label>
-				<input type="date" name="dataNasc">
-				
-				<br>
-
-				<label>RG</label>
-				<input type="text" name="rg">
-				
-				<br>
-				
-				<br><label>Telefone</label>
-				<input type="text" name="telefone">
-				
-				<br>
-
-				<br><label>Email</label>
-				<input type="text" name="email">
-				
-				<br>
-
-				<br><label>Função</label>
-				<input type="text" name="funcao">
-				
-				<br>
-
-				<br><label>Estado</label>
-				<select name="estado">
-					<option value="1">Ativo</option>
-					<option value="0">Inativo</option>
-				</select>	
-				<br>
-
-				<br><label>CEP</label>');
-
-		echo ('
-				<input type="text" name="cep">
-				
-				<br>
-
-				<br><label>Numero</label>
-				<input type="text" name="numero">
-				
-				<br>
-
-				<br><label>Complemento</label>
-				<input type="text" name="complemento">
-				
-				<br>
-
-				<input type="submit" value="Enviar">
-
-			</form>
-		');
+		PainelController::GetExibir('paginaUsuarios', $cidades);
 
 }
 
