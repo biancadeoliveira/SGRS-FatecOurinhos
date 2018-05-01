@@ -1,14 +1,8 @@
 <?php
-/**
- * Created Lucas Gabriel.
- * User: Lucas Gabriel
- * Date: 08/04/2018
- * Time: 19:28
- */
-
 
 namespace App\system\Models;
 
+use App\system\Models;
 
 class Produto
 {
@@ -145,5 +139,28 @@ class Produto
 
     }
 
+
+  public function deleteProduto($id){
+    
+            $dao = new \App\system\Models\ProdutoDAO();
+            return $dao->deleteProduto($id);
+    }
+    
+
+    public function editar($id){
+
+        $dados = $this->getDados();
+        $cn = $this->getCamposNull();
+        
+        $r = Validacao::verificarNullGeral($cn, $dados);
+
+        if ($r == true) {
+            return ("Erro! Existem valores em branco");
+            // echo("Erro! Existem valores em branco");
+        } else {
+            $dao = new \App\system\Models\ProdutoDAO();
+            return $dao->update($dados, $id);
+        }
+    }
 
 }

@@ -8,6 +8,8 @@
 
 namespace App\system\Models;
 
+use App\system\Models;
+
 use App;
 
     class ProdutoDAO
@@ -49,6 +51,37 @@ use App;
         }
 
 
+    public function deleteProduto($id){
+
+        $a = 'DELETE FROM produto where codProduto = :ID';
+
+        $var = array(
+            ':ID' => $id
+        );
+
+        $r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+        return $r;
+    }
+
+        public function update($data, $id){
+
+        $a = 'UPDATE produto SET codCategoria = :CODCATEGORIA, numProduto = :NUMPRODUTO, nome = :NOME, descricao = :DESCRICAO, preco = :PRECO  WHERE codProduto = :ID;';
+        
+        $var = array(
+            ':CODCATEGORIA' => $data[1],
+            ':NUMPRODUTO' => $data[2],
+            ':NOME' => $data[3],
+            ':DESCRICAO' => $data[4],
+            ':PRECO' => $data[5],
+            ':ID' => $id
+        );
+
+        // $this->executar($a, 'executarQuery', $var);
+        $r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+    }
+
+
+
         public function select(){
 
             $a = 'SELECT codProduto, codCategoria, numProduto, nome, descricao, preco FROM produto ORDER BY nome';
@@ -57,6 +90,8 @@ use App;
 
             return $result;
         }
+
+
 
         private function executar($a, $func, $var = array()){
 
