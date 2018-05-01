@@ -107,7 +107,7 @@ class CEP
 	}
 
 	//Recebe como parametro um valor que indica qual o tipo de select que devera ser efetuado.
-	public function select($a){
+	public function selectCep($a){
 
 		 	$dao = new \App\system\Models\CepDAO();
 

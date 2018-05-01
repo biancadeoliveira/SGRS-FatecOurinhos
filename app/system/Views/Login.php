@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<!--
+** Author: Lucas de Abreu Mendonça
+** Date: 2018-04-30
+**
+** Tela login-->
+
 <html>
 <head>
 	<title>SGRS - Login</title>

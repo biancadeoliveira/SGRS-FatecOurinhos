@@ -22,14 +22,10 @@ public function GetInserirUsuario(){
 		\App\system\Models\Validacao::validarLogin(1);
 
 
-		$cidadesDAO = new \App\system\Models\CidadesDAO();
+		$usuario = new \App\system\Models\Usuario();
+		$usuarios = $usuario->select();
 
-		$ceps = $cidadesDAO->listarCep();
-		$ceps = json_encode( $ceps );
-
-		$cidades = $cidadesDAO->select();
-		//$cidades = json_encode( $cidades );
-		PainelController::GetExibir('paginaUsuarios', $cidades);
+		PainelController::GetExibir('paginaUsuarios', $usuarios);
 
 }
 

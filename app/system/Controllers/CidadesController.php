@@ -18,16 +18,23 @@ class CidadesController
 
 		\App\system\Models\Validacao::validarLogin(2);
 
+		$cid = new \App\system\Models\Cidades();
+		$cids = $cid->select();
 
-		$cidade = new \App\system\Models\Cidades();
-		$cidades = $cidade->select();
+		$cep = new \App\system\Models\CEP();
+		$ceps = $cep->selectCep(2);
 
-		PainelController::GetExibir('paginaEnderecos', $cidades);
+		$dados = array(
+			'Cidades' => $cids,
+			'Cep' => $ceps
+		);
+
+		PainelController::GetExibir('paginaEnderecos', $dados);
 	}
 
 	public function PostInserir($request, $response, $args){
 
-		\App\system\Models\Login::validarLogin(2);
+		\App\system\Models\Validacao::validarLogin(2);
 
 		$nome = $_POST['nome'];
 		$codPostal = $_POST['codPostal'];
@@ -44,10 +51,29 @@ class CidadesController
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
 
 	}
+	
+// Função de edição de cidades
+	public function PostEditar($request, $response, $args){
 
+		\App\system\Models\Validacao::validarLogin(2);
+
+		$nome = $_POST['nome'];
+		$codPostal = $_POST['codPostal'];
+		$estado = $_POST['estado'];
+		$pais = $_POST['pais'];
+
+		$dados = array($nome, $codPostal, $estado, $pais);
+
+		$cidade = new \App\system\Models\Cidades($dados);
+
+		$result = $cidade->editar($args['idcidade']);
+
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
+
+	}
 	public function DeleteCidade($request, $response, $args){
 
-		\App\system\Models\Login::validarLogin(2);
+		\App\system\Models\Validacao::validarLogin(2);
 
 		$cidade = new \App\system\Models\Cidades();
 

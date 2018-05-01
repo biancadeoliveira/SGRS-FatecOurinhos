@@ -52,5 +52,15 @@ class UsuarioDAO
 		return $result;
 
 	}
+	
+	public function buscar(){
+
+		$a = 'SELECT * FROM usuario';
+
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');
+
+		return $result;
+
+	}
 
 }

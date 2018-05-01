@@ -237,6 +237,13 @@ class Usuario
 
 	}
 
+	public function select(){
+
+		 	$usua = new \App\system\Models\UsuarioDAO();
+		 	return $usua->buscar();
+
+	}
+
 	//Função para verificar valores nulos
 	private function verificarNull(){
 
