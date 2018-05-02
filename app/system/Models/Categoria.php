@@ -101,6 +101,22 @@ class Categoria
 		}
 	}
 
+	public function editar($id){
+
+		$dados = $this->getDados();
+		$cn = $this->getCamposNull();
+		
+		$r = Validacao::verificarNullGeral($cn, $dados);
+
+		if ($r == true) {
+		 	return ("Erro! Existem valores em branco");
+		 	// echo("Erro! Existem valores em branco");
+		} else {
+			$dao = new \App\system\Models\CategoriaDAO();
+		 	return $dao->update($dados, $id);
+		}
+	}
+
 	public function excluir($cod){
 			$dao = new \App\system\Models\CategoriaDAO();
 		 	return $dao->delete($cod);

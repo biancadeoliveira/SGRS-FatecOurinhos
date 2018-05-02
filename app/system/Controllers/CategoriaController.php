@@ -45,12 +45,28 @@ class CategoriaController
 		//$dados = array('22', 'Porções', 'Cozinha');
 
 		$dados = array($codCategoria, $nome, $departamento);
-		var_dump($dados);
-
+		
 		$cat = new \App\system\Models\Categoria($dados);
 		$result = $cat->inserir();
 
-		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");
+
+	}
+
+
+	public function PostEditar($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(2);
+
+		$codCategoria = $_POST['codCategoria'];
+		$nome = $_POST['nome'];
+		$departamento = $_POST['departamento'];
+
+		$dados = array($codCategoria, $nome, $departamento);
+
+		$cat = new \App\system\Models\Categoria($dados);
+		$result = $cat->editar($args['cod']);
+
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");
 
 	}

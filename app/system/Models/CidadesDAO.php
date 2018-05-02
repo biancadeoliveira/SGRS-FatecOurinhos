@@ -35,6 +35,23 @@ class CidadesDAO
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 	}
 
+	// Função de edição de cidades
+	public function update($data, $id){
+
+
+		$a = 'UPDATE cidade SET nome = :NOME, codPostal = :CODPOSTAL, estado = :ESTADO, pais = :PAIS WHERE codPostal = :ID';
+		
+		$var = array(
+			':NOME' => $data[0],
+			':CODPOSTAL' => $data[1],
+			':ESTADO' =>  $data[2],
+			':PAIS' => $data[3],
+			':ID' => $id
+		);
+
+		// $this->executar($a, 'executarQuery', $var);
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+	}
 
 
 	public function search($data){

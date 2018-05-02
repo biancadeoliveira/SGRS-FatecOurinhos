@@ -28,6 +28,23 @@ class CategoriaDAO
 		$r = App\system\Helpers\SqlHelper::executar($query, 'executarQuery', $var);
 	}
 
+
+	public function update($data, $id){
+
+		$a = 'UPDATE categoria SET codCategoria = :CODCATEGORIA, nome = :NOME, departamento = :DEPARTAMENTO WHERE codCategoria = :ID;';
+		
+		$var = array(
+			':CODCATEGORIA' => $data[0],
+			':NOME' => $data[1],
+			':DEPARTAMENTO' => $data[2],
+			':ID' => $id
+		);
+
+		// $this->executar($a, 'executarQuery', $var);
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+	}
+
+
 	//Método de exclusão de uma categoria do cardapio
 	public function delete($cod){
 		$query = 'DELETE FROM categoria WHERE codCategoria =:CODCATEGORIA';

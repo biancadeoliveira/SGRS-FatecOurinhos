@@ -114,6 +114,23 @@ class Cidades
 		}
 	}
 
+	// Função de edição de cidades
+	public function editar($id){
+
+		$dados = $this->getDados();
+		$cn = $this->getDadosNull();
+		
+		$r = Validacao::verificarNullGeral($cn, $dados);
+
+		if ($r == true) {
+		 	return ("Erro! Existem valores em branco");
+		 	// echo("Erro! Existem valores em branco");
+		} else {
+		 	$dao = new \App\system\Models\CidadesDAO();
+		 	return $dao->update($dados, $id);
+		}
+	}
+
 	public function excluir($id){
 		 	$dao = new \App\system\Models\CidadesDAO();
 		 	return $dao->excluir($id);
