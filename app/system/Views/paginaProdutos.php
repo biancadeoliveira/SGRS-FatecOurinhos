@@ -39,6 +39,10 @@
 		</div>
 	</div>
 	<?php  if(isset($_GET['editar']) && isset($_GET['cod'])){ 
-		include_once($c . 'formEditarCategoria.php'); 
+		if($_GET['editar'] == 'categoria'){
+			include_once($c . 'formEditarCategoria.php'); 	
+		} else if($_GET['editar'] == 'produto'){
+			include_once($c . 'formEditarProduto.php'); 	
+		}
 	}?>
 </div>

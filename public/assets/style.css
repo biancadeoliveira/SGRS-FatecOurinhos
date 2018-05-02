@@ -83,12 +83,16 @@ table{
 	padding: 5px!important;
 }
 
+.tdBtn img{
+	width: 30px;
+}
+
 .excluir{
-	background-color: #ff3535;
+	/*background-color: #ff3535;*/
 }
 
 .editar{
-	background-color: #3e9d36;
+	/*background-color: #3e9d36;*/
 }
 
 .nav{

@@ -1,7 +1,7 @@
 <div id="modal">
 	<div id="modal-editar">
 		<div id="btn-close">
-			<img onclick="modalClose();" src="http://localhost/framework/img/icons/btn-close.png">
+			<img onclick="modalClose();" src="<?php echo ($GLOBALS['$urlImg'] . 'icons/btn-close.png');?>">
 		</div>
 		
 		<div class="cadastro">
@@ -12,7 +12,7 @@
 			<?php foreach ($dados['Categorias'] as $key => $value) { if($value['codCategoria'] == $_GET['cod']){?>
 
 			<div class="form-cadastro">
-				<form method="POST" id="form" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias')?>">
+				<form method="POST" id="form" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/editar/'.$value['codCategoria'])?>">
 						<label>Código da categoria:</label>
 						<input type="number" name="codCategoria" value="<?php echo $value['codCategoria'] ?>">
 						<br>

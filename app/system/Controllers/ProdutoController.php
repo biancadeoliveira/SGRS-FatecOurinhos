@@ -56,8 +56,8 @@ class ProdutoController
 
         $dados = array($codCategoria, $numProduto, $nome, $descricao, $preco);
 
-        $prod = new \App\system\Models\Produto($dados);
-        $result = $prod->editar($args['cod']);
+        $prod = new \App\system\Models\Produto();
+        $result = $prod->editar($dados, $args['cod']);
 
         header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");
 

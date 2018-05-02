@@ -21,7 +21,9 @@ require '..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
 //Define a estrutura principal do sistema
 $GLOBALS['$urlpadrao'] = 'http://localhost/framework/public/';
-$GLOBALS['mensagem'] = "aa";
+$GLOBALS['$urlImg'] = 'http://localhost/framework/img/';
+$GLOBALS['$urlraiz'] = 'C:/xampp/htdocs/framework/';
+
 
 $app = new \Slim\App();
 
@@ -52,11 +54,12 @@ $app->get('/painel', App\system\Controllers\PainelController::class. ':Home');	/
 $app->get('/painel/cidade', App\system\Controllers\CidadesController::class. ':GetInserir')->setName('cidade');;	//Página teste banco
 $app->post('/painel/cidade', App\system\Controllers\CidadesController::class. ':PostInserir');	//Página teste banco
 $app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesController::class. ':DeleteCidade'); //Página teste banco
+// $app->get('/painel/cidade/editar/{idcidade}', App\system\Controllers\CidadesController::class. ':PostEditar');
 
 
 // PRODUTO
 $app->post('/painel/produto', App\system\Controllers\ProdutoController::class. ':PostInserirProduto');	//Página teste banco
-
+$app->post('/painel/produto/editar/{cod}', App\system\Controllers\ProdutoController::class. ':PostEditarProduto');
 
 // $app->get('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':GetExibir');	//Página teste banco
 // $app->post('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':PostUpdate');	//Página teste banco
@@ -64,6 +67,7 @@ $app->post('/painel/produto', App\system\Controllers\ProdutoController::class. '
 //CATEGORIAS
 $app->get('/painel/categorias', App\system\Controllers\CategoriaController::class. ':GetInserir');
 $app->post('/painel/categorias', App\system\Controllers\CategoriaController::class. ':PostInserir');
+$app->post('/painel/categorias/editar/{cod}', App\system\Controllers\CategoriaController::class. ':PostEditar');
 $app->get('/painel/categorias/delete/{codCat}', App\system\Controllers\CategoriaController::class. ':DeleteCategoria');
 
 

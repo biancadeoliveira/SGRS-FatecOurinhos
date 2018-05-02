@@ -37,16 +37,12 @@ class ClientesController
 		$rg = $_POST['rg'];
 		$telefone = $_POST['telefone'];
 		$email = $_POST['email'];
-	
-		//$dados = array('45164522861', 'Lucas de Areu Mendonça', '415424173', '14996917224', 'devlucasmendonca@gmail.com');
 
 		$dados = array($cpf, $nome, $rg, $telefone, $email);
 
 		$cliente = new \App\system\Models\Clientes($dados);
 
 		$result = $cliente->inserir();
-
-		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cliente');
 
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
 

@@ -36,17 +36,12 @@ class ItemController
 		$estado = $_POST['estado'];
 		$observacao = $_POST['observacao'];
 
-		//$dados = array('Paulistania', '1234578', 'SP', 'Brasil');
 
 		$dados = array($codPedido, $codProduto, $quantidade, $preco, $estado, $observacao);
 
 		$item = new \App\system\Models\Item($dados);
 
 		$result = $item->inserir();
-
-		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
-
-		//echo '<script type="text/javascript">window.location.href = "/sgrs/public/painel/cidade";</script>';
 
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/item");
 

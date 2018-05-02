@@ -21,7 +21,7 @@ class PainelController
 
 	public static function GetExibirLogin($arq, $dados = array()){
 
-		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
+		$c = ($GLOBALS['$urlraiz'] . 'app/system/Views/');
 		include_once($c . $arq . '.php');
 	}	
 
@@ -42,39 +42,39 @@ class PainelController
 		if ($func == 'Caixa') {
 
 			$teste = array (
-				'HOME' => 'http://localhost/framework/public/painel',
-				'Endereços' => 'http://localhost/framework/public/painel/cidade',
-				'Clientes' => 'http://localhost/framework/public/painel/clientes',
-				'Mesas' => 'http://localhost/framework/public/painel/mesas',
-				'Reservas' => 'http://localhost/framework/public/reservas',
-				'Pedidos' => '#',
-				'Pagamentos' => '#',
-				'Sair' => 'http://localhost/framework/public/app/logout'
+				'HOME' => ($GLOBALS['$urlpadrao'] . 'painel'),
+				'Endereços' => ($GLOBALS['$urlpadrao'] . 'painel/cidade'),
+				'Clientes' => ($GLOBALS['$urlpadrao'] . 'painel/clientes'),
+				'Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas'),
+				'Reservas' => ($GLOBALS['$urlpadrao'] . 'reservas'),
+				'Pedidos' => '',
+				'Pagamentos' => '',
+				'Sair' => ($GLOBALS['$urlpadrao'] . 'app/logout')
 			);
 		} else if($func == 'Gerente'){
 
 			$teste = array (
-				'HOME' => 'http://localhost/framework/public/painel',
-				'Endereços' => 'http://localhost/framework/public/painel/cidade',
-				'Usuários' => 'http://localhost/framework/public/painel/usuario',
-				'Clientes' => 'http://localhost/framework/public/painel/clientes',
-				'Cardápio' => 'http://localhost/framework/public/painel/categorias',
-				'Mesas' => 'http://localhost/framework/public/painel/mesas',
-				'Reservas' => 'http://localhost/framework/public/reservas',
-				'Pedidos' => 'http://localhost/framework/public/painel/pedidos',
-				'Pagamentos' => '#',
-				'Relatórios' => '#',
-				'Sair' => 'http://localhost/framework/public/app/logout'
+				'HOME' => ($GLOBALS['$urlpadrao'] . 'painel'),
+				'Endereços' => ($GLOBALS['$urlpadrao'] . 'painel/cidade'),
+				'Usuários' => ($GLOBALS['$urlpadrao'] . 'painel/usuario'),
+				'Clientes' => ($GLOBALS['$urlpadrao'] . 'painel/clientes'),
+				'Cardápio' => ($GLOBALS['$urlpadrao'] . 'painel/categorias'),
+				'Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas'),
+				'Reservas' => ($GLOBALS['$urlpadrao'] . 'painel/reservas'),
+				'Pedidos' => '',
+				'Pagamentos' => '',
+				'Relatórios' => '',
+				'Sair' => ($GLOBALS['$urlpadrao'] . 'app/logout')
 			);		
 
 		} else if($func == 'Garçom'){
 			$teste = array (
 					'Pedidos' => '#',
-					'Sair' => 'http://localhost/framework/public/app/logout'
+					'Sair' => ($GLOBALS['$urlpadrao'] . 'app/logout')
 				);
 		}
 
-		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
+		$c = ($GLOBALS['$urlraiz'] . 'app/system/Views/');
 		include_once($c . 'menuSuperior.php');
 
 

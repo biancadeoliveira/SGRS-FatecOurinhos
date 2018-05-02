@@ -147,20 +147,20 @@ class Produto
     }
     
 
-    public function editar($id){
+    public function editar($dados, $id){
 
-        $dados = $this->getDados();
-        $cn = $this->getCamposNull();
+        // $dados = $this->getDados();
+        // $cn = $this->getDadosNull();
         
-        $r = Validacao::verificarNullGeral($cn, $dados);
+        // $r = Validacao::verificarNullGeral($cn, $dados);
 
-        if ($r == true) {
-            return ("Erro! Existem valores em branco");
-            // echo("Erro! Existem valores em branco");
-        } else {
+        // if ($r == true) {
+        //     return ("Erro! Existem valores em branco");
+        //     // echo("Erro! Existem valores em branco");
+        // } else {
             $dao = new \App\system\Models\ProdutoDAO();
             return $dao->update($dados, $id);
-        }
+        // }
     }
 
 }

@@ -17,7 +17,7 @@ body {
 	width: 100%;
 	height:100%;
 	font-family: 'Open Sans', sans-serif;
-		background: url('http://localhost/SGRS-FatecOurinhos/img/bg-login.png'),
+		background: url('http://localhost/framework/img/bg-login.png'),
 		linear-gradient(50deg,#926f44,#7d3232);
 /*	background: url('http://localhost/SGRS-FatecOurinhos/img/bg-login.png'),
 		linear-gradient(50deg,#926f44,#7d3232);*/

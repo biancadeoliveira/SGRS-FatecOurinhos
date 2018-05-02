@@ -25,8 +25,8 @@
 					<td><?php echo $value['nome'];?></td>
 					<td><?php echo $value['funcao'];?></td>
 					<td><?php echo $value['telefone'];?></td>
-					<td class="tdBtn editar"><a href="#">Editar</a></td>
-					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/usuario/delete/' . $value['cpf']);?>">Excluir</a></td>
+					<td class="tdBtn editar"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
+					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/usuario/delete/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
 				</tr>
 
 		<?php

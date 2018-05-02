@@ -68,13 +68,15 @@ use App;
         $a = 'UPDATE produto SET codCategoria = :CODCATEGORIA, numProduto = :NUMPRODUTO, nome = :NOME, descricao = :DESCRICAO, preco = :PRECO  WHERE codProduto = :ID;';
         
         $var = array(
-            ':CODCATEGORIA' => $data[1],
-            ':NUMPRODUTO' => $data[2],
-            ':NOME' => $data[3],
-            ':DESCRICAO' => $data[4],
-            ':PRECO' => $data[5],
+            ':CODCATEGORIA' => $data[0],
+            ':NUMPRODUTO' => $data[1],
+            ':NOME' => $data[2],
+            ':DESCRICAO' => $data[3],
+            ':PRECO' => $data[4],
             ':ID' => $id
         );
+
+        var_dump($var);
 
         // $this->executar($a, 'executarQuery', $var);
         $r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);

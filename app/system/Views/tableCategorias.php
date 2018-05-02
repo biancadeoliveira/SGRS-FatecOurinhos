@@ -3,7 +3,7 @@
 		<th><label>Cod</label></th>
 		<th><label>Nome</label></th>
 		<th><label>Departamento</label></th>
-		<th colspan="2"><label>-</label></th>
+		<th colspan="3"><label>-</label></th>
 	</tr>
 
 <?php
@@ -22,8 +22,9 @@
 			<td><?php echo $value['codCategoria'];?></td>
 			<td><?php echo $value['nome'];?></td>
 			<td><?php echo $value['departamento'];?></td>
-			<td class="tdBtn editar" onclick="editarDado(<?php echo($key+1); ?>)"><a href="#">Editar</a></td>
-			<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/delete/' . $value['codCategoria']);?>">Excluir</a></td>
+			<td class="tdBtn editar" onclick="editarDado(<?php echo($key+1); ?>)"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
+			<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/delete/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+			<td class="tdBtn" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/view/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-view.png')?>"></a></td>
 		</tr>
 
 <?php
