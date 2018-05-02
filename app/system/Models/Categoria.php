@@ -129,5 +129,11 @@ class Categoria
 
 	}
 
+	public function visualizar($id){
+
+		 	$dao = new \App\system\Models\CategoriaDAO();
+		 	return $dao->searchByCod($id);
+
+	}
 
 }

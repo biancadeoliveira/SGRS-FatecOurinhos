@@ -71,6 +71,23 @@ class CategoriaController
 
 	}
 
+	public function ViewCategoria($request, $response, $args){
+
+		$cat = new \App\system\Models\Categoria();
+		$cats = $cat->visualizar($args['cod']);
+
+		$prod = new \App\system\Models\Produto();
+		$prods = $prod->selectProdutoByCat($args['cod']);
+
+		$dados = array(
+			'Categoria' => $cats,
+			'Produtos' => $prods,
+		);
+
+		PainelController::GetExibir('singleCategoria', $dados);
+
+	}
+
 	public function DeleteCategoria($request, $response, $args){
 
 		$cat = new \App\system\Models\Categoria();

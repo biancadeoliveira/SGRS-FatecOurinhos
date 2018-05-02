@@ -204,15 +204,20 @@ class Usuario
 	public function inserirUsuario(){
 
 		$dados = $this->getDados();
-		$r = $this->verificarNull();
+		// $r = $this->verificarNull();
 
 
-		if ($r == true) {
-		 	// echo "Erro! Existem valores em branco";
-		} else {
+		// if ($r == true) {
+		//  	// echo "Erro! Existem valores em branco";
+		// } else {
+
+		var_dump($dados);
+
 		 	$dao = new \App\system\Models\UsuarioDAO();
+		 	
 		 	$dao->insert($dados);
-		}
+
+		// }
 
 	}
 

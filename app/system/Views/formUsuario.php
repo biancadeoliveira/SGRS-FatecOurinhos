@@ -4,7 +4,7 @@
 	</div>
 	<div class="form-cadastro">	
 
-		<form method="POST" action="http://localhost/sgrs/public/usuario">
+		<form method="POST" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/usuario')?>">
 				
 				<input placeholder="CPF" type="text" name="cpf">
 				<input placeholder="Nome" type="text" name="nome">
@@ -29,7 +29,7 @@
 				
 	</div>			
 	<div class="submit-cadastro">
-		<input type="submit" value="Enviar">
+			<input type="submit" value="Enviar">
 		</form>
 	</div>
 </div>

@@ -24,7 +24,7 @@
 			<td><?php echo $value['departamento'];?></td>
 			<td class="tdBtn editar" onclick="editarDado(<?php echo($key+1); ?>)"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
 			<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/delete/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
-			<td class="tdBtn" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/view/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-view.png')?>"></a></td>
+			<td class="tdBtn");"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/view/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-view.png')?>"></a></td>
 		</tr>
 
 <?php

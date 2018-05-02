@@ -50,18 +50,47 @@ use App;
             return $result;
         }
 
+        public function selectByCat($id){
+            
+            $a = 'SELECT *  FROM produto WHERE codCategoria = :CODCATEGORIA;';
 
-    public function deleteProduto($id){
+             $var = array(
+                ':CODCATEGORIA' => $id
+            );
 
-        $a = 'DELETE FROM produto where codProduto = :ID';
+            $result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);  
+            
+            return $result;
 
-        $var = array(
-            ':ID' => $id
-        );
+        }
 
-        $r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
-        return $r;
-    }
+        public function countByCat($id){
+            
+            $a = 'SELECT COUNT(*) as "Quantidade de Pedidos"  FROM produto WHERE codCategoria = :CODCATEGORIA;';
+
+             $var = array(
+                ':CODCATEGORIA' => $id
+            );
+
+            $result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');  
+            
+            return $result;
+
+        }
+
+
+        public function deleteProduto($id){
+
+            $a = 'DELETE FROM produto where codProduto = :ID';
+
+            $var = array(
+                ':ID' => $id
+            );
+
+            $r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+            return $r;
+        }
+
 
         public function update($data, $id){
 

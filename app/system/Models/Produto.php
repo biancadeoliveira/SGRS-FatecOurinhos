@@ -139,6 +139,16 @@ class Produto
 
     }
 
+     public function selectProdutoByCat($id){
+
+        $dao = new \App\system\Models\ProdutoDAO();
+        $a = $dao->selectByCat($id);
+        
+
+        return $a;
+
+    }
+
 
   public function deleteProduto($id){
     

@@ -233,7 +233,7 @@ table{
 /*CSS Guias*/
 
 .info{
-	width: 70%;
+	width: 95%;
 	display: table;
 	margin: 0 auto;
 }
@@ -268,11 +268,19 @@ table{
 }
 
 .guia{
-	width: 70%;
+	width: 95%;
 	display: table;
 	margin: 0 auto;
 }
 
 .active{
 	display: block;
+}
+
+.noMarginAuto{
+	margin: 0!important;
+}
+
+.tableEnderecos{
+	margin-bottom: 70px!important;
 }

@@ -4,7 +4,7 @@
 	</div>
 	<div class="form-cadastro">
 
-		<form method="POST" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reserva')?>">
+		<form method="POST" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reservas')?>">
 		
 				<input placeholder="CPF Cliente" type="number" name="cpfCliente">
 				<input placeholder="Código da mesa" type="number" name="codMesa">

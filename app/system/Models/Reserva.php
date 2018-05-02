@@ -32,48 +32,48 @@ class Reserva
 	}	
 	
 	//Get's e Set's
-	public function setCcodReserva($dado){
+	public function setCodReserva($dado){
 		$this->codReserva = $dado;
 	}
-	public function getcodReserva(){
+	public function getCodReserva(){
 		return $this->codReserva;
 	}
 	
 	
-	public function setcpfCliente($dado){
+	public function setCpfCliente($dado){
 		$this->cpfCliente = $dado;
 	}
-	public function getcpfCliente(){
+	public function getCpfCliente(){
 		return $this->cpfCliente;
 	}
 	
 	
-	public function setcodMesa($dado){
+	public function setCodMesa($dado){
 		$this->codMesa = $dado;
 	}
-	public function getcodMesa(){
+	public function getCodMesa(){
 		return $this->codMesa;
 	}
 	
 	
-	public function setdataReserva($dado){
-		$this->cpfCliente = $dado;
+	public function setDataReserva($dado){
+		$this->dataReserva = $dado;
 	}
-	public function getdataReserva(){
-		return $this->cpfCliente;
+	public function getDataReserva(){
+		return $this->dataReserva;
 	}
 	
-	public function sethora($dado){
+	public function setHora($dado){
 		$this->hora = $dado;
 	}
 	public function getHora(){
 		return $this->hora;
 	}
 	
-	public function setestado($dado){
+	public function setEstado($dado){
 		$this->estado = $dado;
 	}
-	public function getestado(){
+	public function getEstado(){
 		return $this->estado;
 	}
 	
@@ -86,21 +86,21 @@ class Reserva
 	
 	
 	public function setDados($dados){
-		$this->cpfCliente(dados[0]);
-		$this->codMesa($dados[1]);
-		$this->dataReserva($dados[2]);
-		$this->codReserva($dados[3]);		
-		$this->estado($dados[4]);
-		$this->hora($dados[5]);
+		$this->setCpfCliente($dados[0]);
+		$this->setCodMesa($dados[1]);
+		$this->setDataReserva($dados[2]);
+		$this->setCodReserva($dados[3]);		
+		$this->setEstado($dados[4]);
+		$this->setHora($dados[5]);
 	}
 	public function getDados(){		
 		$dados = array(
-		$this->cpfCliente(),
-		$this->codMesa(),
-		$this->dataReserva(),
-		$this->codReserva(),		
-		$this->estado(),
-		$this->hora()
+		$this->getCpfCliente(),
+		$this->getCodMesa(),
+		$this->getDataReserva(),
+		$this->getCodReserva(),		
+		$this->getEstado(),
+		$this->getHora()
 			
 		);
 		return $dados;
@@ -108,16 +108,16 @@ class Reserva
 	//Incluir categorias no sistema
 	public function inserir(){
 		$dados = $this->getDados();
-		$cn = $this->getCamposNull();
+		// $cn = $this->getCamposNull();
 		
-		$r = Validacao::verificarNullGeral($cn, $dados);
-		if ($r == true) {
-		 	return ("Erro! Existem valores em branco");
-		 	// echo("Erro! Existem valores em branco");
-		} else {
+		// $r = Validacao::verificarNullGeral($cn, $dados);
+		// if ($r == true) {
+		//  	return ("Erro! Existem valores em branco");
+		//  	// echo("Erro! Existem valores em branco");
+		// } else {
 		 	$dao = new \App\system\Models\ReservaDAO();
 		 	return $dao->insert($dados);
-		}
+		// }
 	}
 	public function excluir($cod){
 			$dao = new \App\system\Models\ReservaDAO();

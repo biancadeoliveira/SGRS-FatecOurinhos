@@ -26,7 +26,6 @@ public function GetInserirUsuario(){
 		$usuarios = $usuario->select();
 
 		PainelController::GetExibir('paginaUsuarios', $usuarios);
-
 }
 
 
@@ -39,20 +38,22 @@ public function PostInserirUsuario(){
 		$nome = $_POST['nome'];
 		$senha = $_POST['senha'];
 		$dataNasc = $_POST['dataNasc'];
-		$rg= $_POST['rg'];
+		$rg = $_POST['rg'];
 		$telefone = $_POST['telefone'];
 		$email = $_POST['email'];
 		$funcao = $_POST['funcao'];
 		$estado = $_POST['estado'];
 		$cep = $_POST['cep'];
-		$numero= $_POST['numero'];
+		$numero = $_POST['numero'];
 		$complemento = $_POST['complemento'];
 
 		$dados = array($cpf, $nome, $senha, $dataNasc, $rg, $telefone, $email, $funcao, $estado, $cep, $numero, $complemento);
 
-		$usuario = new \App\system\Models\Usuario( $dados );
+		$usuario = new \App\system\Models\Usuario($dados);
 
 		$usuario->inserirUsuario();
+
+		header('Location: ' . $GLOBALS['urlpadrao'] . '/usuarios');
 
 	}
 

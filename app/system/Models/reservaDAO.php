@@ -17,10 +17,12 @@ class reservaDAO
 		//Método para insersão de uma nova reserva.
 		public function insert($data){
 		
-			$query = 'INSERT INTO reserva (codReserva, cpfCliente, codMesa, dataReserva, hora, estado) VALUES (:CODRESERVA, :CPFCLIENTE, :CODMESA, :DATARESERVA, :HORA, :ESTADO)';
+			
+
+			$query = 'INSERT INTO reserva (cpfCliente, codMesa, dataReserva, hora, estado) VALUES (:CPFCLIENTE, :CODMESA, :DATARESERVA, :HORA, :ESTADO)';
 
 			$var = array(
-				':CODRESERVA' => $data[0],
+				// ':CODRESERVA' => $data[0],
 				':CPFCLIENTE' => $data[1], 
 				':CODMESA' => $data[2], 
 				':DATARESERVA' => $data[3], 

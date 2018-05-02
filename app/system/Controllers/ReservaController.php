@@ -31,7 +31,7 @@ class ReservaController
 		\App\system\Models\Validacao::validarLogin(1);
 
 
-		$codReserva = $_POST['codReserva'];
+		$codReserva = '';
 		$cpfCliente= $_POST['cpfCliente'];
 		$codMesa = $_POST['codMesa'];
 		$dataReserva = $_POST['dataReserva'];
@@ -41,10 +41,10 @@ class ReservaController
 		$dados = array($codReserva, $cpfCliente, $codMesa, $dataReserva, $hora, $estado);
 
 		$res = new \App\system\Models\Reserva($dados);
-		$result = $res->inserirReserva();
+		$result = $res->inserir();
 
 		// \Core\Request::newR('GET', 'http://localhost/SGRS-FatecOurinhos/public/painel/cidade');
-		header("Location: " . $GLOBALS['$urlpadrao'] . "Reserva");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/reservas");
 
 	}
 

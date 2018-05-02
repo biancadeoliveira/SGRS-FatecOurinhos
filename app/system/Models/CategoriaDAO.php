@@ -80,6 +80,21 @@ class CategoriaDAO
 	}
 
 	//Método para buscar as categorias cadastradas
+	public function searchByCod($id){
+
+		$query = 'SELECT * FROM categoria WHERE codCategoria = :COD';	
+
+		$var = array(
+			':COD' => $id
+		);
+
+		$r = App\system\Helpers\SqlHelper::executar($query, 'executarSelect', $var);	
+		return $r;
+		
+	}
+
+	
+	//Método para buscar as categorias cadastradas
 	public function searchByCategoria($dado){
 
 		$query = 'SELECT * FROM categoria ORDER BY nome WHERE departamento = :DEPARTAMENTO';

@@ -35,7 +35,7 @@ class UsuarioDAO
 			':COMPLEMENTO' => $data[11],		
 		);
 
-		$this->executar($a, $var, 'executarQuery');
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 	}
 
 
