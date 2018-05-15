@@ -8,7 +8,7 @@
 				
 				<input placeholder="CPF" type="text" name="cpf">
 				<input placeholder="Nome" type="text" name="nome">
-				<input placeholder="Senha" type="text" name="senha">
+				<input placeholder="Senha" type="password" name="senha">
 				<span style="font-size: .7em; text-align: left;"> Data de Nascimento </span>
 				<input type="date" name="dataNasc">
 				<input placeholder="RG" type="text" name="rg">

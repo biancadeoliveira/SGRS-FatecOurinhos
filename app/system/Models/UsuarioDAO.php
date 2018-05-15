@@ -53,6 +53,18 @@ class UsuarioDAO
 
 	}
 	
+	public function delete($id){
+
+            $a = 'DELETE FROM usuario where cpf = :CPF';
+
+            $var = array(
+                ':CPF' => $id
+            );
+
+            $r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+            return $r;
+        }
+
 	public function buscar(){
 
 		$a = 'SELECT * FROM usuario';

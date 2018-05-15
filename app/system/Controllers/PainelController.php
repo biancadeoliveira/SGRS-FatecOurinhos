@@ -59,15 +59,15 @@ class PainelController
 				'Usuários' => ($GLOBALS['$urlpadrao'] . 'painel/usuario'),
 				'Clientes' => ($GLOBALS['$urlpadrao'] . 'painel/clientes'),
 				'Cardápio' => ($GLOBALS['$urlpadrao'] . 'painel/categorias'),
-				'Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas'),
+				'Mesas**' => ($GLOBALS['$urlpadrao'] . 'painel/mesas'),
 				'Reservas' => ($GLOBALS['$urlpadrao'] . 'painel/reservas'),
-				'Pedidos' => '',
-				'Pagamentos' => '',
-				'Relatórios' => '',
+				'Pedidos**' => '',
+				'Pagamentos**' => '',
+				'Relatórios**' => '',
 				'Sair' => ($GLOBALS['$urlpadrao'] . 'app/logout')
 			);		
 
-		} else if($func == 'Garçom'){
+		} else if($func == 'Garcom'){
 			$teste = array (
 					'Pedidos' => '#',
 					'Sair' => ($GLOBALS['$urlpadrao'] . 'app/logout')

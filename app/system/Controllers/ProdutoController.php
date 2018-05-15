@@ -37,7 +37,7 @@ class ProdutoController
 
         $produto = new \App\system\Models\Produto();
 
-        $result = $produto->deleteProduto($args['idproduto']);
+        $result = $produto->deleteProduto($args['cod']);
 
 
           header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");   

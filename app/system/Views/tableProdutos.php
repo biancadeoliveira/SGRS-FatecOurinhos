@@ -25,7 +25,7 @@
 			<td><?php echo $value['nome'];?></td>
 			<td><?php echo $value['preco'];?></td>
 			<td class="tdBtn editar"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias?editar=produto&cod=' . $value['codProduto']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-			<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/Produtos/delete/' . $value['codProduto']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+			<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/produto/delete/' . $value['codProduto']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
 		</tr>
 
 <?php

@@ -58,7 +58,7 @@ class ClientesController
 
 		$result = $cliente->excluir($args['idcliente']);
 
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cliente");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
 
 	}
 	

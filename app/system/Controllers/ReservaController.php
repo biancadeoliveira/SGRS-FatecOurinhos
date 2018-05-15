@@ -50,9 +50,9 @@ class ReservaController
 
 	public function DeleteReserva($request, $response, $args){
 
-		$cat = new \App\system\Models\Reserva();
+		$res = new \App\system\Models\Reserva();
 		$result = $res->excluir($args['codReserva']);
-		header("Location: " . $GLOBALS['$urlpadrao'] . "Reserva");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/reservas");
 
 	}
 }

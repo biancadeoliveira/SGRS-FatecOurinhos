@@ -53,7 +53,19 @@ public function PostInserirUsuario(){
 
 		$usuario->inserirUsuario();
 
-		header('Location: ' . $GLOBALS['urlpadrao'] . '/usuarios');
+		header('Location: ' . $GLOBALS['$urlpadrao'] . 'painel/usuario');
+	}
+
+	public function Delete($request, $response, $args){
+
+		//Instancia a classe model CEP, responsável pelas regras para manter o objeto cep
+		$usuario = new \App\system\Models\Usuario($dados);
+
+		//Recebe o resultado da exclusão
+		$usuario->delete($args['cod']);
+
+		//Retorna para a página de cadastro de cep
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/usuario");
 
 	}
 

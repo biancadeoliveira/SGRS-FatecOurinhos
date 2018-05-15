@@ -120,7 +120,7 @@ class Reserva
 		// }
 	}
 	public function excluir($cod){
-			$dao = new \App\system\Models\ReservaDAO();
+			$dao = new \App\system\Models\reservaDAO();
 		 	return $dao->delete($cod);
 	}
 	public function select(){

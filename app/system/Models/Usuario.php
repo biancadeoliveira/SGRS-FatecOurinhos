@@ -249,6 +249,13 @@ class Usuario
 
 	}
 
+
+	public function delete($id){
+    
+            $usua = new \App\system\Models\UsuarioDAO();
+		 	return $usua->delete($id);
+    }
+
 	//Função para verificar valores nulos
 	private function verificarNull(){
 

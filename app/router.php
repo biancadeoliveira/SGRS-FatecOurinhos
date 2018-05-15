@@ -13,9 +13,6 @@ use \Psr\Http\Message\ResponseInterface as Response;
 //Inicia o autoload automatico das classes
 require '..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
-// require '..'.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR.'bootstrap.php';
-
-
 
 //Inicia o slim
 
@@ -35,9 +32,6 @@ $app = new \Slim\App();
 //Site
 $app->get('/', App\site\Controllers\SiteController::class. ':home');						//Home site
 $app->get('/sobre', App\site\Controllers\SiteController::class. ':sobre');					//Página sobre
-// $app->get('/contato', App\site\Controllers\SiteController::class. ':contato');				//Página contato
-// $app->get('/cardapio', App\site\Controllers\SiteController::class. ':cardapio');			//Página cardapio
-// $app->get('/cardapio/{item}', App\site\Controllers\SiteController::class. ':cardapioItem');	//Página item do cardapio
 
 
 
@@ -51,18 +45,16 @@ $app->get('/painel', App\system\Controllers\PainelController::class. ':Home');	/
 */
 
 //CIDADES
-$app->get('/painel/cidade', App\system\Controllers\CidadesController::class. ':GetInserir');	//Página teste banco
-$app->post('/painel/cidade', App\system\Controllers\CidadesController::class. ':PostInserir');	//Página teste banco
-$app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesController::class. ':DeleteCidade'); //Página teste banco
-// $app->get('/painel/cidade/editar/{idcidade}', App\system\Controllers\CidadesController::class. ':PostEditar');
-
+$app->get('/painel/cidade', App\system\Controllers\CidadesController::class. ':GetInserir');
+$app->post('/painel/cidade', App\system\Controllers\CidadesController::class. ':PostInserir');
+$app->post('/painel/cep', App\system\Controllers\CepController::class. ':PostInserir');
+$app->get('/painel/cep/delete/{codcep}', App\system\Controllers\CepController::class. ':DeleteCep');
+$app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesController::class. ':DeleteCidade');
 
 // PRODUTO
-$app->post('/painel/produto', App\system\Controllers\ProdutoController::class. ':PostInserirProduto');	//Página teste banco
+$app->post('/painel/produto', App\system\Controllers\ProdutoController::class. ':PostInserirProduto');
 $app->post('/painel/produto/editar/{cod}', App\system\Controllers\ProdutoController::class. ':PostEditarProduto');
-
-// $app->get('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':GetExibir');	//Página teste banco
-// $app->post('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':PostUpdate');	//Página teste banco
+$app->get('/painel/produto/delete/{cod}', App\system\Controllers\ProdutoController::class. ':DeleteProduto');
 
 //CATEGORIAS
 $app->get('/painel/categorias', App\system\Controllers\CategoriaController::class. ':GetInserir');
@@ -73,25 +65,24 @@ $app->get('/painel/categorias/delete/{codCat}', App\system\Controllers\Categoria
 
 
 //USUARIO
-$app->get('/painel/usuario', App\system\Controllers\UsuarioController::class. ':GetInserirUsuario');	//Página teste banco
-
+$app->get('/painel/usuario', App\system\Controllers\UsuarioController::class. ':GetInserirUsuario');
 $app->post('/painel/usuario', App\system\Controllers\UsuarioController::class. ':PostInserirUsuario');
-
+$app->get('/painel/usuario/delete/{cod}', App\system\Controllers\UsuarioController::class. ':Delete');
 
 //RESERVA
-$app->get('/painel/reservas', App\system\Controllers\ReservaController::class. ':GetInserirReserva');	//
-$app->post('/painel/reservas', App\system\Controllers\ReservaController::class. ':PostInserirReserva');	//
-$app->get('/painel/Reserva/delete/{codReserva}', App\system\Controllers\ReservaController::class. ':DeleteReserva');
-
+$app->get('/painel/reservas', App\system\Controllers\ReservaController::class. ':GetInserirReserva');
+$app->post('/painel/reservas', App\system\Controllers\ReservaController::class. ':PostInserirReserva');
+$app->get('/painel/reservas/delete/{codReserva}', App\system\Controllers\ReservaController::class. ':DeleteReserva');
 
 
 // CLIENTES
-$app->get('/painel/clientes', App\system\Controllers\ClientesController::class. ':GetInserir');	//
-$app->post('/painel/clientes', App\system\Controllers\ClientesController::class. ':PostInserir');	//
+$app->get('/painel/clientes', App\system\Controllers\ClientesController::class. ':GetInserir');
+$app->post('/painel/clientes', App\system\Controllers\ClientesController::class. ':PostInserir');
+$app->get('/painel/clientes/delete/{idcliente}', App\system\Controllers\ClientesController::class. ':DeleteCliente');
 
 //Sistema
-$app->get('/app/login', App\system\Controllers\LoginController::class . ':exibirLogin');		//Página de login
-$app->post('/app/login', App\system\Controllers\LoginController::class . ':validarLogin');		//Validação de login
+$app->get('/app/login', App\system\Controllers\LoginController::class . ':exibirLogin');
+$app->post('/app/login', App\system\Controllers\LoginController::class . ':validarLogin');
 
 
 $app->get('/app/logout', App\system\Controllers\LoginController::class . ':finalizarSessao');		

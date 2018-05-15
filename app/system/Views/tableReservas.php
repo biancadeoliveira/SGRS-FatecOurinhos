@@ -29,7 +29,7 @@
 					<td><?php echo $value['estado'];?></td>
 <!-- 					<td><?php echo $value['email'];?></td> -->
 					<td class="tdBtn editar"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cliente/delete/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reservas/delete/' . $value['codReserva']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
 				</tr>
 
 		<?php

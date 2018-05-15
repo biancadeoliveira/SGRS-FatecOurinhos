@@ -36,7 +36,7 @@ class Sql
 		try {
 		
 			//Instância o objeto de conexão do banco de dados
-			$conn = new \PDO("mysql:host=localhost;dbname=sgrs_engenharia", "root", "978471"); 
+			$conn = new \PDO("mysql:host=localhost;dbname=sgrs_engenharia", "root", ""); 
 			//Armazena a conexão na variavel $conn 
 			$this->conn = $conn;
 

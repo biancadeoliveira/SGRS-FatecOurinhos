@@ -44,7 +44,7 @@ class CepController
 
 	}
 
-	public function PostInserir($request, $response, $args){
+	public function PostInserir(){
 
 		//Recebe os dados passados pelo formulário de cadastro
 		$codPostal = $_POST['codPostal'];
@@ -62,7 +62,7 @@ class CepController
 		$result = $cep->inserir();
 
 		//Retorna para a página de cadastro de cep
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cep");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
 
 	}
 
@@ -75,7 +75,7 @@ class CepController
 		$result = $cep->excluir($args['codcep']);
 
 		//Retorna para a página de cadastro de cep
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cep");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
 
 	}
 	
