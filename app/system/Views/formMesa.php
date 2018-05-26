@@ -10,8 +10,8 @@
 					<input placeholder="Quantidade de Lugares" type="number" name="qtdLugares">
 					<select type="text" name="estado">
 							<option value="">Estado</option>
-							<option value="1">Ocupada</option>
-							<option value="0">Vazia</option>
+							<option value="Ocupada">Ocupada</option>
+							<option value="Disponivel">Disponivel</option>
 							</select>
 							 
 

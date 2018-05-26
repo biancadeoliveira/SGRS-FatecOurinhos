@@ -19,14 +19,17 @@ class MesaController
 
 		\App\system\Models\Validacao::validarLogin(1);
 
-
 		$mesa = new \App\system\Models\Mesa();
-		$mesas= $mesa->select();
+		$mesas = $mesa->select();
 
+
+		
 		//var_dump($clientes);
 
+		$dados = array('mesas'=>$mesas);
 
-		PainelController::GetExibir('PaginaMesa', $mesas);
+
+		PainelController::GetExibir('PaginaMesa', $dados);
 
 	}
 
