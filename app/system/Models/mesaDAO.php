@@ -1,62 +1,90 @@
 <?php
 
 /*
-** Author: Gabriel Ribeiro
-** Date: 2018-04-14
-** 
+
+** Author: Lucas Gabriel
+**Author: Gabriel Ribeiro
+** Date: 2018-05-23
+**
 ** Classe MesaDAO
-** Implementa os métodos de inserção, busca e desabilitação de objetos da classe mesa 
+** Implementa os métodos insert, select e busca do objeto Mesa
 */
 
 namespace App\system\Models;
 
 use App;
+use Helpers;
 
-class MesaDAO
-{
-	//Método para inserção de uma nova mesa
+class mesaDAO
+{	
+
+//Método para inserir uma nova cidade
 	public function insert($data){
-		
-		$query = 'INSERT INTO mesa (codMesa, qtdLugares, estado) VALUES (:CODMESA, :NOME, :DEPARTAMENTO)';
+
+
+		$a = 'INSERT INTO mesa (codMesa, qtdLugares, estado) VALUES (:CODMESA, :QTDLUGARES, :ESTADO)';
 		
 		$var = array(
-				':CODMESA' => $data[0],
-				':QTDLUGARES' => $data[1],
-				':ESTADO' => $data[2]
-		);
-		
-		$r = App\system\Helpers\SqlHelper::executar($query, 'executarQuery', $var);
+			':CODMESA' => $data[0],
+			':QTDLUGARES' => $data[1],
+			':ESTADO' =>  $data[2]
+			);
+
+		// $this->executar($a, 'executarQuery', $var);
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 	}
 
-	//Método de exclusão de uma mesa
-	public function delete ($cod){
-		$query = 'DELETE FROM mesa WHERE codMesa =:CODMESA';
+
+	// Função de edição de mesas
+	public function update($data, $id){
+
+
+		$a = 'UPDATE mesa SET codMesa = :CODMESA, qtdLugares = :QTDLUGARES, estado = :ESTADO WHERE codMesa = :ID';
+		
+			$var = array(
+			':CODMESA' => $data[0],
+			':QTDLUGARES' => $data[1],
+			':ESTADO' =>  $data[2],
+			':ID' => $id
+		);
+
+		// $this->executar($a, 'executarQuery', $var);
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+	}
+
+
+	public function search($data){
+
+		$a = 'SELECT codMesa FROM mesa WHERE codMesa = :CODMESA';
 		
 		$var = array(
-				':CODMESA' => $cod
+			':CODMESA' => $data[0]
 		);
-		
-		$r = App\system\Helpers\SqlHelper::executar($query, 'executarQuery', $var);
+
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);
 	}
-	
-	//Método para buscar as mesas cadastradas
-	public function search(){
-		
-		$query = 'SELECT * FROM mesa ORDER BY codMesa';
-		$r = App\system\Helpers\SqlHelper::executar($query, 'executarSelect');
-		return $r;
+
+
+	//Método para listar todas as mesas
+	public function select(){
+
+		$a = 'SELECT * FROM mesa ORDER BY codMesa';
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');
+		return $result;
 	}
-	
-	//Método para buscar as mesas cadastradas
-	public function searchByEstado($dado){
-		
-		$query = 'SELECT * FROM mesa ORDER BY estado WHERE estado = :ESTADO';
-		
+
+
+	//Método para excluir uma mesa
+	public function excluir($id){
+
+		$a = 'DELETE FROM mesa where codMesa = :ID';
+
 		$var = array(
-				':ESTADO' => $dado
+			':ID' => $id
 		);
-		
-		$r = App\system\Helpers\SqlHelper::executar($query, 'executarSelect', $var);
+
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 		return $r;
 	}
+
 }
