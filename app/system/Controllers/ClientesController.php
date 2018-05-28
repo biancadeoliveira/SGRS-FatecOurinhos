@@ -48,6 +48,39 @@ class ClientesController
 
 	}
 
+	public function PostEditar($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(2);
+
+		$telefone = $_POST['telefone'];
+		$email = $_POST['email'];
+
+		$dados = array($telefone, $email);
+
+		$cliente = new \App\system\Models\Clientes($dados);
+
+		$cod = $args['cod'];
+
+		$result = $cliente->editar($cod);
+
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
+
+	}
+
+	public function ViewCliente($request, $response, $args){
+
+		$cliente = new \App\system\Models\Clientes($dados);
+		$clientes = $cliente->visualizar($args['cod']);
+
+		$dados = array(
+			'Clientes' => $clientes,
+		);
+
+		PainelController::GetExibir('singleCliente', $dados);
+
+	}
+
+
 	public function DeleteCliente($request, $response, $args){
 		
 		\App\system\Models\Validacao::validarLogin(2);

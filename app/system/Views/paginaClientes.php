@@ -16,4 +16,9 @@
 			</div>
 		</div>
 	</div>
+	<?php  if(isset($_GET['cod'])){ 
+		
+			include_once($c . 'formEditarCliente.php'); 	
+		
+	}?>
 </div>

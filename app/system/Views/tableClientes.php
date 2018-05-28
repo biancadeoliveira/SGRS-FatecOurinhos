@@ -3,7 +3,7 @@
 				<th><label>CPF</label></th>
 				<th><label>Nome</label></th>
 				<th><label>Telefone</label></th>
-<!-- 				<th><label>Email</label></th> -->	
+				<th><label>Email</label></th>	
 				<th colspan="2"><label>-</label></th>
 			</tr>
 
@@ -24,9 +24,10 @@
 					<td><?php echo $value['cpf'];?></td>
 					<td><?php echo $value['nome'];?></td>
 					<td><?php echo $value['telefone'];?></td>
-<!-- 					<td><?php echo $value['email'];?></td> -->
-					<td class="tdBtn editar"><!-- <a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a> --></td>
-					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/delete/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+					<td><?php echo $value['email'];?></td>
+					<td class="tdBtn editar"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/editar/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
+					<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar exclusão?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/delete/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+					<td class="tdBtn"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/view/' . $Clientes['cod']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-view.png')?>"></a></td>
 				</tr>
 
 		<?php
@@ -34,8 +35,3 @@
 
 		?>
 		</table>
-
-		<!-- <div class="buttons">
-			<h3>Cadastrar</h3>
-			<h3>Buscar</h3>
-		</div> -->
