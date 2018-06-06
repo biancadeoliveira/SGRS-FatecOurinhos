@@ -12,51 +12,71 @@ namespace App\system\Controllers;
 
 use App\system\Models;
 
-
 class UsuarioController
 
 {
 
-public function GetInserirUsuario(){
+	//Rota: painel/usuarios
+	//Lista os usuários cadastrados no sistema
+	public function GetUsuarios(){
+
+			\App\system\Models\Validacao::validarLogin(1);
+
+			$usuario = new \App\system\Models\Usuario();
+			$usuarios = $usuario->select();
+
+			PainelController::AbrirContent('Usuários Cadastrados');
+			PainelController::GetExibir('tableUsuarios', $usuarios);
+			PainelController::FecharContent();
+
+	}
+
+	//Rota: /painel/usuario/add
+	//Exibe formulário para inclusão de um novo usuário
+	public function GetInserirUsuario(){
+
+			\App\system\Models\Validacao::validarLogin(1);
+
+			PainelController::AbrirContent('Adicionar usuário');
+			PainelController::GetExibir('formUsuario');
+			PainelController::FecharContent();
+	}
+
+
+	//Rota: /painel/usuario/add
+	//Insere os dados enviados atraves do formulário
+	public function PostInserirUsuario(){
 
 		\App\system\Models\Validacao::validarLogin(1);
 
 
-		$usuario = new \App\system\Models\Usuario();
-		$usuarios = $usuario->select();
+			$cpf = $_POST['cpf'];
+			$nome = $_POST['nome'];
+			$senha = $_POST['senha'];
+			$dataNasc = $_POST['dataNasc'];
+			$rg = $_POST['rg'];
+			$telefone = $_POST['telefone'];
+			$email = $_POST['email'];
+			$funcao = $_POST['funcao'];
+			$estado = $_POST['estado'];
+			$cep = $_POST['cep'];
+			$numero = $_POST['numero'];
+			$complemento = $_POST['complemento'];
 
-		PainelController::GetExibir('paginaUsuarios', $usuarios);
-}
+			$dados = array($cpf, $nome, $senha, $dataNasc, $rg, $telefone, $email, $funcao, $estado, $cep, $numero, $complemento);
 
+			$usuario = new \App\system\Models\Usuario($dados);
 
-public function PostInserirUsuario(){
+			$usuario->inserirUsuario();
 
-	\App\system\Models\Validacao::validarLogin(1);
-
-
-		$cpf = $_POST['cpf'];
-		$nome = $_POST['nome'];
-		$senha = $_POST['senha'];
-		$dataNasc = $_POST['dataNasc'];
-		$rg = $_POST['rg'];
-		$telefone = $_POST['telefone'];
-		$email = $_POST['email'];
-		$funcao = $_POST['funcao'];
-		$estado = $_POST['estado'];
-		$cep = $_POST['cep'];
-		$numero = $_POST['numero'];
-		$complemento = $_POST['complemento'];
-
-		$dados = array($cpf, $nome, $senha, $dataNasc, $rg, $telefone, $email, $funcao, $estado, $cep, $numero, $complemento);
-
-		$usuario = new \App\system\Models\Usuario($dados);
-
-		$usuario->inserirUsuario();
-
-		header('Location: ' . $GLOBALS['$urlpadrao'] . 'painel/usuario');
+			header('Location: ' . $GLOBALS['$urlpadrao'] . 'painel/usuario');
 	}
 
+	//Rota: /painel/usuario/delete/{cod}
+	//Exclui um usuário do sistema
 	public function Delete($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
 
 		//Instancia a classe model CEP, responsável pelas regras para manter o objeto cep
 		$usuario = new \App\system\Models\Usuario($dados);

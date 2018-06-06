@@ -1,14 +1,14 @@
 <div class="content">
 
 	<div id="page-title" class="col-6">
-		<h1>Usuários</h1>
+		<h1>Novo Usuário</h1>
 	</div>
-
-	<div class="col-2">	
+<!-- 
+	<div class="col-6">	
 		<?php include_once($c . 'formUsuario.php'); ?>
-	</div>
+	</div> -->
 
-	<div class="col-4">
+	<div class="col-6">
 
 		<div id="g1" class="table active">
 			<div class="guia">

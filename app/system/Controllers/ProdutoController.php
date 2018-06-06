@@ -7,10 +7,46 @@ use App\system\Models;
 
 class ProdutoController
 {
-    
-    public function PostInserirProduto(){
 
-        
+    //Rota: /painel/produtos
+    //Exibe uma tabela com todos os produtos cadastrados no banco
+    public function GetProdutos($request, $response, $args){
+
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $prod = new \App\system\Models\Produto();
+        $prods = $prod->selectProduto();
+
+        $dados = array(
+            'Produtos' => $prods
+        );
+
+        PainelController::AbrirContent('Produtos');
+        PainelController::GetExibir('tableProdutos', $dados);
+        PainelController::FecharContent();
+    }
+    
+    //Rota: /painel/produto/add
+    //Exibe formulário para inclusão de um novo produto
+    public function GetInserirProduto(){
+
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $cat = new \App\system\Models\Categoria();
+        $cats = $cat->select();
+
+        $dados = array(
+            'Categorias' => $cats,
+        );
+
+        PainelController::AbrirContent('Novo produto');
+        PainelController::GetExibir('formProdutos', $dados);
+        PainelController::FecharContent();
+    }
+
+    //Rota: /painel/produto/add
+    //Inclusão de um novo usuário no sistema
+    public function PostInserirProduto(){
 
         $codProduto = $_POST['codProduto'];
         $codCategoria = $_POST['codCategoria'];
@@ -26,11 +62,12 @@ class ProdutoController
 
         $produto->inserirProduto();
 
-        header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");
+        header("Location: " . $GLOBALS['$urlpadrao'] . "painel/produtos");
 
     }
 
-
+    //Rota: /painel/produto/delete/{cod}
+    //Exclui um produto do sistema
     public function deleteProduto($request, $response, $args){
 
         \App\system\Models\Validacao::validarLogin(2);
@@ -40,7 +77,7 @@ class ProdutoController
         $result = $produto->deleteProduto($args['cod']);
 
 
-          header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");   
+        header("Location: " . $GLOBALS['$urlpadrao'] . "painel/produtos");   
 
     }
 

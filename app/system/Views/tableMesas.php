@@ -19,7 +19,7 @@
 		?>
 					<td style="padding: 5px;">
 					<?php 
-						if ($value['codMesa'] == '1') {
+						if ($value['codMesa'] == 'Disponivel') {
 							echo "<div style='border-top: 7px solid green; padding: 3px; font-size: 1.5em; text-align: center;'>";
 						} else {
 							echo "<div style='border-top: 7px solid red; padding: 3px; font-size: 1.5em; text-align: center;'>";
