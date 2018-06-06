@@ -33,7 +33,18 @@ class ClientesDAO
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 	}
 
+	public function update($data, $id){
 
+		$a = 'UPDATE cliente SET telefone = :TELEFONE, email = :EMAIL WHERE cpf = :ID;';
+		
+		$var = array(
+			':TELEFONE' => $data[0],
+			':EMAIL' => $data[1],
+			':ID' => $id
+		);
+
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+	}
 
 	/*public function search($data){
 
@@ -66,5 +77,18 @@ class ClientesDAO
 
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 		return $r;
+	}
+
+	public function searchByCod($id){
+
+		$query = 'SELECT * FROM cliente WHERE cpf = :CPF';	
+
+		$var = array(
+			':CPF' => $id
+		);
+
+		$r = App\system\Helpers\SqlHelper::executar($query, 'executarSelect', $var);	
+		return $r;
+		
 	}
 }
