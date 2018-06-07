@@ -14,17 +14,27 @@ use App\system\Models;
 class ClientesController
 {
 
+	public function GetClientes(){
+
+			\App\system\Models\Validacao::validarLogin(1);
+
+			$cliente = new \App\system\Models\Clientes();
+			$clientes = $cliente->select();
+
+			PainelController::AbrirContent('Clientes Cadastrados');
+			PainelController::GetExibir('tableClientes', $clientes);
+			PainelController::FecharContent();
+
+	}
+
 	public function GetInserir($request, $response, $args){
 
 		\App\system\Models\Validacao::validarLogin(2);
 
 
-		$cliente = new \App\system\Models\Clientes();
-		$clientes = $cliente->select();
-
-		//var_dump($clientes);
-
-		PainelController::GetExibir('paginaClientes', $clientes);
+			PainelController::AbrirContent('Adicionar cliente');
+			PainelController::GetExibir('formCliente');
+			PainelController::FecharContent();
 	}
 
 	public function PostInserir($request, $response, $args){
@@ -44,7 +54,7 @@ class ClientesController
 
 		$result = $cliente->inserir();
 
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes/add");
 
 	}
 

@@ -25,9 +25,9 @@
 					<td><?php echo $value['nome'];?></td>
 					<td><?php echo $value['telefone'];?></td>
 					<td><?php echo $value['email'];?></td>
-					<td class="tdBtn editar"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/editar/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-					<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar exclusão?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/delete/' . $value['cpf']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
-					<td class="tdBtn"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/view/' . $Clientes['cod']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-view.png')?>"></a></td>
+					<td class="btn-editar"><a href="#">Editar</a></td>
+					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/delete/' . $value['cpf']);?>">Excluir</a></td>
+					<td class="tdBtn"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/view/' . $Clientes['cod']);?>"></a></td>
 				</tr>
 
 		<?php
