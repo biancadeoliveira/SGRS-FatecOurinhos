@@ -14,32 +14,31 @@ use App\system\Models;
 class CepController
 {
 
-	public function GetInserir($request, $response, $args){
+	public function GetCeps($request, $response, $args){
 
 		$cep = new \App\system\Models\CEP();
-		$c = $cep->select(2); //O parametro 2 indica que a seleção deverá retornar todos as informações do cep cadastrado
+		$c = $cep->selectCep(2); //O parametro 2 indica que a seleção deverá retornar todos as informações do cep cadastrado
 
-		echo ("<form method='POST' id='form' action='" . $GLOBALS['$urlpadrao'] . "painel/cep'>
-			
-			<table>
-				<tr>
-					<td><label>Codigo Postal</label></td>
-					<td><label>Cep</label></td>
-					<td><label>Rua</label></td>
-					<td><label>Bairro</label></td>
-					<td rowspan='2'><input type='submit' value='Inserir' style='height: 100%;');'></td>			
-				</tr>
-				<tr>
-					<td><input type='number' name='codPostal'></td>
-					<td><input type='number' name='cep'></td>
-					<td><input type='text' name='rua'></td>
-					<td><input type='text' name='bairro'></td>
-				</tr>
-			</table>
-
-		</form>");
+		PainelController::AbrirContent('CEPS');
+		PainelController::GetExibir('tableCeps', $c);
+		PainelController::FecharContent();
 
 		//PainelController::GetExibir('formCep', $c);
+
+
+	}
+
+	public function GetInserir(){
+
+			\App\system\Models\Validacao::validarLogin(1);
+
+			$cid = new \App\system\Models\Cidades();
+			$cids = $cid->select();
+
+			PainelController::AbrirContent('Adicionar usuário');
+			PainelController::GetExibir('formCep', $cids);
+			PainelController::FecharContent();
+
 
 
 	}
@@ -62,7 +61,9 @@ class CepController
 		$result = $cep->inserir();
 
 		//Retorna para a página de cadastro de cep
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
+		//header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
+
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/endereco/add");
 
 	}
 

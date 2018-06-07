@@ -10,12 +10,14 @@
 		<?php
 
 
-			foreach ($dados['Cep'] as $key => $value) {
+			foreach ($dados as $key => $value) {
 			
 			if($key%2 == 0){
-				echo "<tr>";
-			} else {
 				echo "<tr class='l1'>";
+				
+			} else {
+				echo "<tr>";
+				
 			}
 
 				
@@ -25,8 +27,8 @@
 					<td><?php echo $value['codCidade'];?></td>
 					<td><?php echo $value['rua'];?></td>
 					<td><?php echo $value['bairro'];?></td>
-					<td class="tdBtn editar"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cep/delete/' . $value['cep']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+					<td class="btn-editar"><a href="#">Editar</a></td>
+					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cep/delete/' . $value['cep']);?>">Excluir</a></td>
 				</tr>
 
 		<?php
