@@ -14,9 +14,26 @@ use App\system\Models;
 class CidadesController
 {
 
+	public function GetCidades($request, $response, $Args){
+		
+			\App\system\Models\Validacao::validarLogin(1);
+
+			$cid = new \App\system\Models\Cidades();
+		    $cids = $cid->select();
+
+		    $dados = array(
+			'Cidades' => $cids,
+		);
+
+			PainelController::AbrirContent('Cidades / CEP');
+			PainelController::GetExibir('tableCidades', $dados);
+			PainelController::FecharContent();	
+
+	}
+
 	public function GetInserir($request, $response, $args){
 
-		\App\system\Models\Validacao::validarLogin(2);
+		\App\system\Models\Validacao::validarLogin(1);
 
 		$cid = new \App\system\Models\Cidades();
 		$cids = $cid->select();
@@ -29,12 +46,13 @@ class CidadesController
 			'Cep' => $ceps
 		);
 
-		PainelController::GetExibir('paginaEnderecos', $dados);
-	}
+			PainelController::AbrirContent('Cidades / CEP');
+			PainelController::GetExibir('formCidade', $cids);
+			PainelController::FecharContent();	}
 
 	public function PostInserir($request, $response, $args){
 
-		\App\system\Models\Validacao::validarLogin(2);
+		\App\system\Models\Validacao::validarLogin(1);
 
 		$nome = $_POST['nome'];
 		$codPostal = $_POST['codPostal'];
@@ -48,14 +66,14 @@ class CidadesController
 
 		$result = $cidade->inserir();
 
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidades");
 
 	}
 	
 // Função de edição de cidades
 	public function PostEditar($request, $response, $args){
 
-		\App\system\Models\Validacao::validarLogin(2);
+		\App\system\Models\Validacao::validarLogin(1);
 
 		$nome = $_POST['nome'];
 		$codPostal = $_POST['codPostal'];
@@ -73,13 +91,13 @@ class CidadesController
 	}
 	public function DeleteCidade($request, $response, $args){
 
-		\App\system\Models\Validacao::validarLogin(2);
+		\App\system\Models\Validacao::validarLogin(1);
 
 		$cidade = new \App\system\Models\Cidades();
 
 		$result = $cidade->excluir($args['idcidade']);
 
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidades");
 
 		
 

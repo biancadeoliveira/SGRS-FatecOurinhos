@@ -12,11 +12,12 @@
 
 			foreach ($dados['Cidades'] as $key => $value) {
 			
-			if($key%2 == 0){
-				echo "<tr>";
-			} else {
+			if($key%1 == 0){				
 				echo "<tr class='l1'>";
+			} else {
+				echo "<tr>";
 			}
+
 
 				
 		?>
@@ -25,8 +26,8 @@
 					<td><?php echo $value['codPostal'];?></td>
 					<td><?php echo $value['estado'];?></td>
 					<td><?php echo $value['pais'];?></td>
-					<td class="tdBtn editar"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cidade/delete/' . $value['codCidade']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+					<td class="btn-editar"><a href="#">Editar</a></td>
+					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cidade/delete/' . $value['codCidade']);?>">Deletar</a></td>
 				</tr>
 
 		<?php
