@@ -96,10 +96,10 @@ class ClientesController
 		\App\system\Models\Validacao::validarLogin(2);
 
 
-		$cliente = new \App\system\Models\Clientes();
+		$cliente = new \App\system\Models\Clientes($dados);
 
 
-		$result = $cliente->excluir($args['idcliente']);
+		$cliente->delete($args['idcliente']);
 
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
 

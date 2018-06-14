@@ -140,9 +140,9 @@ class Clientes
 		}
 	}
 
-	public function excluir($id){
+	public function delete($id){
 		 	$dao = new \App\system\Models\ClientesDAO();
-		 	return $dao->excluir($id);
+		 	return $dao->delete($id);
 	}
 
 	public function select(){

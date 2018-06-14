@@ -67,7 +67,7 @@ class ClientesDAO
 
 
 	//Método para excluir uma cidade
-	public function excluir($id){
+	public function delete($id){
 
 		$a = 'DELETE FROM cliente where cpf = :CPF';
 
