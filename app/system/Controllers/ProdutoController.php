@@ -96,8 +96,26 @@ class ProdutoController
         $prod = new \App\system\Models\Produto();
         $result = $prod->editar($dados, $args['cod']);
 
-        header("Location: " . $GLOBALS['$urlpadrao'] . "painel/categorias");
+        header("Location: " . $GLOBALS['$urlpadrao'] . "painel/produto/editar/". $args['cod'] ."?status=1");
+    }
 
+    public function GetEditarProduto($request, $response, $args){
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $cat = new \App\system\Models\Categoria();
+        $cats = $cat->select();
+
+        $prod = new \App\system\Models\Produto();
+        $prods = $prod->selectProdutoByCod($args['cod']);
+
+        $dados = array(
+            'Categorias' => $cats,
+            'Produtos' => $prods
+        );
+
+        PainelController::AbrirContent('Editar ' . $prods[0]['nome'] );
+        PainelController::GetExibir('formEditarProduto', $dados);
+        PainelController::FecharContent();
     }
 
 

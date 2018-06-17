@@ -233,6 +233,53 @@ input, text-area:focus{
 	cursor: pointer;
 }
 
+.btn-voltar a{
+	display: inline;
+	padding: 10px 15px;
+	margin: 12px 0;
+	background-color: #008000;
+	/*border: 1px groove #008000;*/
+	color: #fff;
+	width: auto;
+	float: right;
+	border-radius: 5px;
+	font-size: .9em;
+	text-decoration: none;
+	background-color: #aaa;
+	color: #fff;
+}
+
+.btn-voltar:hover a{
+	background-color: #222;
+	cursor: pointer;
+}
+
+.btn-addNovo{
+	float: left;
+	padding: 10px 25px;
+	margin: 10px 0;
+	background-color: #eee;
+	border: 3px groove #eee;
+	color: #222;
+	font-weight: bold;
+	border-radius: 15px;
+}
+
+.ok{
+	clear: both;
+	float: left;
+	font-size: 1.2em;
+	color: green;
+	margin: 10px 0;
+	background-color: #ddd;
+	padding: 10px;
+}
+
+.btn-addNovo:hover{
+	background-color: #0dde1d;
+    border: 3px groove #0dde1d;
+    color: #fff;
+}
 .desc{
 	position: relative;
 	padding: 5px;
@@ -285,4 +332,50 @@ table, td, tr, th{
 
 table{
 	width: 95%;
+}
+
+
+.chamada-home{
+	width: 80%;
+	background-image: url('http://agendor-blog-uploads.s3-sa-east-1.amazonaws.com/2016/03/06201901/como-fidelizar-clientes.jpg');
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.3em;
+	text-align: center;
+	padding: 100px 50px;
+	margin: 10px;
+	border: 2px double #111;
+	position: relative;
+	border-radius: 10px;
+}
+
+.media{
+	background-color: #00000022;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 10px;
+}
+
+
+/*Mesas*/
+
+.mesa{
+	padding: 15px;
+	margin-right: 5%; 
+	width: 40%;
+	text-align: center;
+	float: right;
+	background-color: #ddd;
+	overflow-y: scroll;
+	height: 80vh;
+}
+
+.mesas{
+	display: table;
+	margin: 0 auto;
+	width: 80%;
 }

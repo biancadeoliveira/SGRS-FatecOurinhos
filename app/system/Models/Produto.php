@@ -139,10 +139,10 @@ class Produto
 
     }
 
-     public function selectProdutoByCat($id){
+     public function selectProdutoByCod($cod){
 
         $dao = new \App\system\Models\ProdutoDAO();
-        $a = $dao->selectByCat($id);
+        $a = $dao->selectByCod($cod);
         
 
         return $a;

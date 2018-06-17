@@ -1,4 +1,4 @@
-<table id="categoria" class="dados">
+<table class="dados">
 	<tr>
 		<th><label>Cod</label></th>
 		<th><label>Nome</label></th>
@@ -11,9 +11,9 @@
 	foreach ($dados['Categorias'] as $key => $value) {
 	
 	if($key%2 == 0){
-		echo "<tr id='" .$value['codCategoria']."'>";
+		echo "<tr class='l1' id='" .$value['codCategoria']."'>";
 	} else {
-		echo "<tr class='l1'>";
+		echo "<tr id='" .$value['codCategoria']."'>";
 	}
 
 		
@@ -22,9 +22,9 @@
 			<td><?php echo $value['codCategoria'];?></td>
 			<td><?php echo $value['nome'];?></td>
 			<td><?php echo $value['departamento'];?></td>
-			<td class="tdBtn editar" onclick="editarDado(<?php echo($key+1); ?>)"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-			<td class="tdBtn excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/delete/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
-			<td class="tdBtn");"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/view/' . $value['codCategoria']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-view.png')?>"></a></td>
+			<td class="btn-editar" onclick="editarDado(<?php echo($key+1); ?>)"><a href="#">Editar</a></td>
+			<td class="btn-excluir" onclick="confirmarExclusao('Confirmar cadastro?');"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/delete/' . $value['codCategoria']);?>">Excluir</a></td>
+			<td class="btn-editar");"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/categorias/view/' . $value['codCategoria']);?>">Ver</a></td>
 		</tr>
 
 <?php

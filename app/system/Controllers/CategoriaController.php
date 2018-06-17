@@ -14,7 +14,7 @@ use App\system\Models;
 class CategoriaController
 {
 
-	public function GetInserir($request, $response, $args){
+	public function GetCategoria($request, $response, $args){
 
 		\App\system\Models\Validacao::validarLogin(1);
 
@@ -22,18 +22,26 @@ class CategoriaController
 		$cat = new \App\system\Models\Categoria();
 		$cats = $cat->select();
 
-		$prod = new \App\system\Models\Produto();
-		$prods = $prod->selectProduto();
-
 		$dados = array(
 			'Categorias' => $cats,
-			'Produtos' => $prods
 		);
 
-		PainelController::GetExibir('paginaProdutos', $dados);
+		PainelController::AbrirContent('Categorias Cadastrados');
+		PainelController::GetExibir('tableCategorias', $dados);
+		PainelController::FecharContent();
+		//PainelController::GetExibir('paginaProdutos', $dados);
 	}
 
-	public function PostInserir($request, $response, $args){
+	public function GetInserirCategoria(){
+
+			\App\system\Models\Validacao::validarLogin(1);
+
+			PainelController::AbrirContent('Adicionar categoria');
+			PainelController::GetExibir('formCategoria');
+			PainelController::FecharContent();
+	}
+
+	public function PostInserirCategoria($request, $response, $args){
 
 		\App\system\Models\Validacao::validarLogin(1);
 

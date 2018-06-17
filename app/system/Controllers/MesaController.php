@@ -14,22 +14,30 @@ use App\system\Models;
 class MesaController
 {
 
+	public function GetMesas($request, $response, $args){
+
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $prod = new \App\system\Models\Mesa();
+        $prods = $prod->select();
+
+        $dados = array(
+            'mesas' => $prods
+        );
+
+        PainelController::AbrirContent('Mesas');
+        PainelController::GetExibir('tableMesas', $dados);
+        PainelController::FecharContent();
+    }
+
 
 	public function GetInserirMesa($request, $response, $args){
 
 		\App\system\Models\Validacao::validarLogin(1);
 
-		$mesa = new \App\system\Models\Mesa();
-		$mesas = $mesa->select();
-
-
-		
-		//var_dump($clientes);
-
-		$dados = array('mesas'=>$mesas);
-
-
-		PainelController::GetExibir('PaginaMesa', $dados);
+		PainelController::AbrirContent('Cadastrar Mesas');
+  		PainelController::GetExibir('formMesa');
+        PainelController::FecharContent();
 
 	}
 

@@ -54,10 +54,10 @@ $app->get('/painel', App\system\Controllers\PainelController::class. ':Home');	/
 */
 
 //Exibe uma página com uma tabela contendo todos os ceps cadastrados no sistema
-$app->get('/painel/enderecos', App\system\Controllers\CepController::class. ':GetInserir');
+$app->get('/painel/enderecos', App\system\Controllers\CepController::class. ':GetCeps');
 
 //Exibe a página com o formulário para inserir um novo cep ao sistema
-$app->get('/painel/endereco/add', App\system\Controllers\CepController::class. ':PostInserir');
+$app->get('/painel/endereco/add', App\system\Controllers\CepController::class. ':GetInserir');
 
 //Rota que captura os dados enviados pelo formulário, a partir do método post e que é responsável por cadastra-lo no banco
 $app->post('/painel/endereco/add', App\system\Controllers\CepController::class. ':PostInserir');
@@ -106,6 +106,9 @@ $app->get('/painel/produto/add', App\system\Controllers\ProdutoController::class
 $app->post('/painel/produto/add', App\system\Controllers\ProdutoController::class. ':PostInserirProduto');
 
 //Rota para edição de um produto previamente cadastrado no sistema
+$app->get('/painel/produto/editar/{cod}', App\system\Controllers\ProdutoController::class. ':GetEditarProduto');
+
+//Rota para edição de um produto previamente cadastrado no sistema
 $app->post('/painel/produto/editar/{cod}', App\system\Controllers\ProdutoController::class. ':PostEditarProduto');
 
 //Rota para exclusão de um produto
@@ -121,13 +124,13 @@ $app->get('/painel/produto/delete/{cod}', App\system\Controllers\ProdutoControll
 */
 
 //Rota que lista todas as categorias cadastradas no sistema
-$app->get('/painel/categorias', App\system\Controllers\CategoriaController::class. ':GetInserir');
+$app->get('/painel/categorias', App\system\Controllers\CategoriaController::class. ':GetCategoria');
 
 //Rota que exibe um formuário para inclusão de uma niva categoria no sistema
-$app->get('/painel/categorias/add', App\system\Controllers\CategoriaController::class. ':GetInserir');
+$app->get('/painel/categoria/add', App\system\Controllers\CategoriaController::class. ':GetInserirCategoria');
 
 //Rota que recebe os dados enviados pelo formulario e cadastra a categoria no banco
-$app->post('/painel/categoria/add', App\system\Controllers\CategoriaController::class. ':PostInserir');
+$app->post('/painel/categoria/add', App\system\Controllers\CategoriaController::class. ':PostInserirCategoria');
 
 //Rota para edição de uma categoria previamente cadastrada
 $app->post('/painel/categoria/editar/{cod}', App\system\Controllers\CategoriaController::class. ':PostEditar');
@@ -184,8 +187,9 @@ $app->get('/painel/reservas/delete/{codReserva}', App\system\Controllers\Reserva
 */
 
 // CLIENTES
-$app->get('/painel/clientes', App\system\Controllers\ClientesController::class. ':GetInserir');
-$app->post('/painel/clientes', App\system\Controllers\ClientesController::class. ':PostInserir');
+$app->get('/painel/clientes', App\system\Controllers\ClientesController::class. ':GetClientes');
+$app->get('/painel/clientes/add', App\system\Controllers\ClientesController::class. ':GetInserir');
+$app->post('/painel/clientes/add', App\system\Controllers\ClientesController::class. ':PostInserir');
 $app->get('/painel/clientes/delete/{idcliente}', App\system\Controllers\ClientesController::class. ':DeleteCliente');
 		
 
@@ -198,8 +202,27 @@ $app->get('/painel/clientes/delete/{idcliente}', App\system\Controllers\Clientes
 */
 
 //Mesa
-$app->get('/painel/mesas', App\system\Controllers\MesaController::class . ':GetInserirMesa');
-$app->post('/painel/mesas', App\system\Controllers\MesaController::class. ':PostInserirMesa');
+$app->get('/painel/mesas', App\system\Controllers\MesaController::class . ':GetMesas');
+$app->get('/painel/mesas/add', App\system\Controllers\MesaController::class . ':GetInserirMesa');
+$app->post('/painel/mesas/add', App\system\Controllers\MesaController::class. ':PostInserirMesa');
+
+
+/*
+****************************************************
+** Pedidos
+****************************************************
+*/
+
+//Exibe o painel com todas as opções de pedidos
+$app->get('/painel/pedidos/add', App\system\Controllers\PedidosController::class . ':GetPedidosAdd');
+
+//Exibe a tela de confirmação de pedido
+$app->post('/painel/pedidos/add/confirmar', App\system\Controllers\MesaController::class . ':GetPedidos');
+
+//Recebe o pedido final
+$app->post('/painel/pedidos/add', App\system\Controllers\MesaController::class . ':GetPedidosAdd');
+
+
 
 
 /*

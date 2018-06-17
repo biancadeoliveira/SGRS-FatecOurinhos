@@ -64,6 +64,20 @@ use App;
 
         }
 
+        public function selectByCod($id){
+            
+            $a = 'SELECT *  FROM produto WHERE codProduto = :CODPRODUTO;';
+
+             $var = array(
+                ':CODPRODUTO' => $id
+            );
+
+            $result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);  
+            
+            return $result;
+
+        }
+
         public function countByCat($id){
             
             $a = 'SELECT COUNT(*) as "Quantidade de Pedidos"  FROM produto WHERE codCategoria = :CODCATEGORIA;';
@@ -115,7 +129,7 @@ use App;
 
         public function select(){
 
-            $a = 'SELECT codProduto, codCategoria, numProduto, nome, descricao, preco FROM produto ORDER BY nome';
+            $a = "SELECT p.codProduto, c.nome as nomeCat, p.numProduto, p.nome, p.descricao, p.preco FROM produto AS p inner join categoria AS c where p.codCategoria = c.codCategoria ORDER BY p.codCategoria, p.numProduto;";
 
             $result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');  
 
