@@ -124,10 +124,13 @@ class Clientes
 		}
 	}
 
-	public function editar($id){
+	public function editar($dados, $id){
 
-		$dados = $this->getDados();
-		$cn = $this->getCamposNull();
+		var_dump($dados);
+		var_dump($id);
+
+		//$dados = $this->getDados();
+		$cn = $this->getDadosNull();
 		
 		$r = Validacao::verificarNullGeral($cn, $dados);
 
@@ -149,6 +152,13 @@ class Clientes
 
 		 	$dao = new \App\system\Models\ClientesDAO();
 		 	return $dao->select();
+
+	}
+
+	public function selectByCPF($ID){
+
+		 	$dao = new \App\system\Models\ClientesDAO();
+		 	return $dao->selectByCPF($ID);
 
 	}
 

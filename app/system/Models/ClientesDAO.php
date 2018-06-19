@@ -35,12 +35,15 @@ class ClientesDAO
 
 	public function update($data, $id){
 
-		$a = 'UPDATE cliente SET telefone = :TELEFONE, email = :EMAIL WHERE cpf = :ID;';
+		$a = 'UPDATE cliente SET cpf = :CPF, nome = :NOME, rg = :RG, telefone = :TELEFONE, email = :EMAIL WHERE cpf = :CPF;';
 		
 		$var = array(
-			':TELEFONE' => $data[0],
-			':EMAIL' => $data[1],
-			':ID' => $id
+			'CPF' => $data[0],
+			'NOME' => $data[1],
+			'RG' => $data[2],
+			':TELEFONE' => $data[3],
+			':EMAIL' => $data[4]
+		
 		);
 
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
@@ -64,6 +67,19 @@ class ClientesDAO
 		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');
 		return $result;
 	}
+
+
+	public function selectByCPF($ID){
+
+		$a = 'SELECT * FROM cliente WHERE cpf = :CPF';
+		$var = array(
+			':CPF' => $ID
+		);
+		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);
+		return $result;
+	}
+
+
 
 
 	//Método para excluir uma cidade

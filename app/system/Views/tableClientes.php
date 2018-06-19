@@ -25,7 +25,7 @@
 					<td><?php echo $value['nome'];?></td>
 					<td><?php echo $value['telefone'];?></td>
 					<td><?php echo $value['email'];?></td>
-					<td class="btn-editar"><a href="#">Editar</a></td>
+					<td class="btn-editar"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/editar/' . $value['cpf']);?>">Editar</a>
 					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/delete/' . $value['cpf']);?>">Excluir</a></td>
 					<td class="tdBtn"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/clientes/view/' . $Clientes['cod']);?>"></a></td>
 				</tr>

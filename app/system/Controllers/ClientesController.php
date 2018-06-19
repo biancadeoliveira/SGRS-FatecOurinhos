@@ -60,27 +60,46 @@ class ClientesController
 
 	public function PostEditar($request, $response, $args){
 
-		\App\system\Models\Validacao::validarLogin(2);
-
+		\App\system\Models\Validacao::validarLogin(1);
+		$cpf = $_POST['cpf'];
+		$nome = $_POST['nome'];
+		$rg = $_POST['rg'];
 		$telefone = $_POST['telefone'];
 		$email = $_POST['email'];
 
-		$dados = array($telefone, $email);
+		$dados = array($cpf, $nome, $rg, $telefone, $email);
 
-		$cliente = new \App\system\Models\Clientes($dados);
+		$cliente = new \App\system\Models\Clientes();
 
-		$cod = $args['cod'];
+		$result = $cliente->editar($dados, $args['idcliente']);
 
-		$result = $cliente->editar($cod);
+		
 
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes");
+		 header("Location: " . $GLOBALS['$urlpadrao'] . "painel/clientes/editar/". $args['idcliente'] ."?status=1");
 
 	}
+
+
+	public function GetEditarCliente($request, $response, $args){
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $cli = new \App\system\Models\Clientes();
+        $clientes = $cli->selectByCPF($args['idcliente']);
+        var_dump($clientes);
+        $dados = array(
+            'Clientes' => $clientes
+            
+        );
+
+        PainelController::AbrirContent('Editar Cliente');
+        PainelController::GetExibir('formEditarCliente', $dados);
+        PainelController::FecharContent();
+    }
 
 	public function ViewCliente($request, $response, $args){
 
 		$cliente = new \App\system\Models\Clientes($dados);
-		$clientes = $cliente->visualizar($args['cod']);
+		$clientes = $cliente->visualizar($args['idcliente']);
 
 		$dados = array(
 			'Clientes' => $clientes,
