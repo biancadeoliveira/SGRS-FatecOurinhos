@@ -28,7 +28,6 @@
 					<td><?php echo $value['hora'];?></td>
 					<td><?php echo $value['estado'];?></td>
 <!-- 					<td><?php echo $value['email'];?></td> -->
-					<td class="btn-editar"><a href="#">Editar</a></td>
 					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reservas/delete/' . $value['codReserva']);?>">Excluir</a></td>
 				</tr>
 

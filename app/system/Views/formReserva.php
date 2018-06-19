@@ -8,19 +8,25 @@
 		<form method="POST" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reserva/add')?>">
 		
 				<div class="form-group">
-					<label for="nome">CPF</label>
-					<input id="cpfCliente" type="number" name="cpfCliente">
-					<span class="desc">? 
-						<span class="desc-text">CPF do cliente</span>
-					</span>
+					<label for="cpfCliente">Cliente</label>
+					<select name="cpfCliente">
+						<?php 
+							foreach ($dados['Clientes'] as $key => $value) {
+							echo"<option value='".$value['cpf']. "'>".$value['nome']." - " .$value['cpf']."</option>";
+							}
+						?>
+					</select>				
 				</div>
 
 				<div class="form-group">
 					<label for="codMesa">Codigo Mesa</label>
-					<input id="codMesa" type="number" name="codMesa">
-					<span class="desc">? 
-						<span class="desc-text">Codigo da Mesa</span>
-					</span>
+					<select name="codMesa">
+						<?php 
+							foreach ($dados['Mesas'] as $key => $value) {
+							echo"<option value='".$value['codMesa']. "'>Mesa - ".$value['codMesa']."</option>";
+							}
+						?>
+					</select>
 				</div>
 
 				<div class="form-group">

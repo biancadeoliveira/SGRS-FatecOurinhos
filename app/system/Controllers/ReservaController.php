@@ -19,11 +19,19 @@ class ReservaController
 		\App\system\Models\Validacao::validarLogin(1);
 
 	
-		$res = new \App\system\Models\Reserva();
-		$reserv = $res->select();
+		$cli = new \App\system\Models\Clientes();
+		$clientes = $cli->select();
+
+		$mes = new \App\system\Models\Mesa();
+		$mesas = $mes->select();
+
+        $dados = array(
+            'Clientes' => $clientes,
+            'Mesas'=> $mesas
+        );
 
 		PainelController::AbrirContent('Reservas');
-		PainelController::GetExibir('formReserva', $reserv);
+		PainelController::GetExibir('formReserva', $dados);
 		PainelController::FecharContent();
 	}
 
