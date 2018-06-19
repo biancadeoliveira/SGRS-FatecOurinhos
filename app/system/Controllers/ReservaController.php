@@ -22,7 +22,9 @@ class ReservaController
 		$res = new \App\system\Models\Reserva();
 		$reserv = $res->select();
 
-		PainelController::GetExibir('paginaReserva', $reserv);
+		PainelController::AbrirContent('Reservas');
+		PainelController::GetExibir('formReserva', $reserv);
+		PainelController::FecharContent();
 	}
 
 
@@ -53,6 +55,24 @@ class ReservaController
 		$res = new \App\system\Models\Reserva();
 		$result = $res->excluir($args['codReserva']);
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/reservas");
+
+	}
+
+	public function GetReserva($request, $response, $args){
+
+
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $reserv = new \App\system\Models\Reserva();
+        $reservs = $reserv->select();
+
+        $dados = array(
+            'Reservas' => $reservs
+        );
+
+		PainelController::AbrirContent('Reservas');
+		PainelController::GetExibir('tableReservas', $dados);
+		PainelController::FecharContent();
 
 	}
 }

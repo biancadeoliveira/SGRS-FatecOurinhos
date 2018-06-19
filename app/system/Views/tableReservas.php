@@ -11,12 +11,12 @@
 		<?php
 
 
-			foreach ($dados as $key => $value) {
+			foreach ($dados['Reservas'] as $key => $value) {
 			
 			if($key%2 == 0){
-				echo "<tr>";
+				echo "<tr class='l1' id'" .$value['codReserva']."'>";
 			} else {
-				echo "<tr class='l1'>";
+				echo "<tr id'" .$value['codReserva']."'>";
 			}
 
 				
@@ -28,8 +28,8 @@
 					<td><?php echo $value['hora'];?></td>
 					<td><?php echo $value['estado'];?></td>
 <!-- 					<td><?php echo $value['email'];?></td> -->
-					<td class="tdBtn editar"><a href="#"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-edit.png')?>"></a></td>
-					<td class="tdBtn excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reservas/delete/' . $value['codReserva']);?>"><img src="<?php echo ($GLOBALS['$urlImg'].'icons/btn-delete.png')?>"></a></td>
+					<td class="btn-editar"><a href="#">Editar</a></td>
+					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/reservas/delete/' . $value['codReserva']);?>">Excluir</a></td>
 				</tr>
 
 		<?php
