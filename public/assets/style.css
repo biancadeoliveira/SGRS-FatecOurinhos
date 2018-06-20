@@ -105,7 +105,7 @@ header{
 #page-title{
 	/*border-bottom: 1px solid #aaa;*/
 	margin: 10px 0;
-	width: 95%;
+	width: 99%;
     background-color: #000;
     color: #fff;
     padding: 15px;
@@ -336,19 +336,28 @@ table{
 
 
 .chamada-home{
-	width: 80%;
-	background-image: url('http://agendor-blog-uploads.s3-sa-east-1.amazonaws.com/2016/03/06201901/como-fidelizar-clientes.jpg');
-	color: #fff;
+	width: 75%;
+	color: #000;
 	font-weight: bold;
 	font-size: 1.3em;
 	text-align: center;
-	padding: 100px 50px;
-	margin: 10px;
-	border: 2px double #111;
+	padding: 10px 10px;
+	margin: 5px;
+	border: 2px double none;
 	position: relative;
 	border-radius: 10px;
 }
 
+.homeimg {
+	width: 80%;
+}
+
+.hometexto {
+	padding: 10px 10px;
+	margin: 5px;
+	border: 2px double none;
+	text-align: justify;
+}
 .media{
 	background-color: #00000022;
 	background-size: cover;
