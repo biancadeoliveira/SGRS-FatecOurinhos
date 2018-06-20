@@ -107,7 +107,7 @@ class CEP
 	}
 
 	//Recebe como parametro um valor que indica qual o tipo de select que devera ser efetuado.
-	public function selectCep($a){
+	public function selectCodPostal($a){
 
 		 	$dao = new \App\system\Models\CepDAO();
 
@@ -118,11 +118,39 @@ class CEP
 		 	}
 	}
 
+	public function selectCEP($ID){
+		$dao = new \App\system\Models\CepDAO();
+
+		return $dao->SelectCEP($ID);
+	}
 
 	//Recebe o cep a ser excluido e passa a informação para CepDAO ue será responsável por realmente excluir.
 	public function excluir($cod){
 		 	$dao = new \App\system\Models\CepDAO();
 		 	return $dao->excluir($cod);
+	}
+
+	
+public function editar($dados, $id){
+
+
+		
+		$cn = $this->getDadosNull();
+		
+		$r = Validacao::verificarNullGeral($cn, $dados);
+
+		if ($r == true) {
+		 	return ("Erro! Existem valores em branco");
+		 	// echo("Erro! Existem valores em branco");
+		} else {
+		 	$dao = new \App\system\Models\CepDAO();
+		 	return $dao->update($dados, $id);
+		}
+	
+
+
+
+
 	}
 
 }

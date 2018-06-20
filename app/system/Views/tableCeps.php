@@ -27,8 +27,8 @@
 					<td><?php echo $value['codCidade'];?></td>
 					<td><?php echo $value['rua'];?></td>
 					<td><?php echo $value['bairro'];?></td>
-					<td class="btn-editar"><a href="#">Editar</a></td>
-					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cep/delete/' . $value['cep']);?>">Excluir</a></td>
+					<td class="btn-editar"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/enderecos/editar/' . $value['cep']);?>">Editar</a>
+					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/enderecos/delete/' . $value['cep']);?>">Excluir</a></td>
 				</tr>
 
 		<?php

@@ -27,6 +27,7 @@ class CepDAO
 			':BAIRRO' => $data[3]
 		);
 
+
 		// $this->executar($a, 'executarQuery', $var);
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 	}
@@ -36,6 +37,7 @@ class CepDAO
 
 		$a = 'SELECT * FROM cep ORDER BY bairro';
 		$result = App\system\Helpers\SqlHelper::executar($a, 'executarSelect');
+		//var_dump($result);
 		return $result;
 	}
 
@@ -47,10 +49,21 @@ class CepDAO
 		return $result;
 	}
 
+	public function selectCEP($ID){
+
+		$c = 'SELECT * FROM cep WHERE cep = :CEP';
+		$var = array(
+			':CEP' => $ID
+		);
+		$result = App\system\Helpers\SqlHelper::executar($c, 'executarSelect', $var);
+		return $result;
+
+	}
+
 	//Método para excluir uma cidade
 	public function excluir($cod){
 
-		$a = 'DELETE FROM cep where cep = :COD';
+		$a = 'DELETE FROM cep WHERE cep = :COD;';
 
 		$var = array(
 			':COD' => $cod
@@ -59,4 +72,20 @@ class CepDAO
 		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
 		return $r;
 	}	
+
+
+	public function update($data, $id){
+
+		$a = 'UPDATE cep SET cep = :CEP, codCidade = :CODCIDADE, rua = :RUA, bairro = :BAIRRO WHERE cep = :CEP';
+		
+		$var = array(
+			'CEP' => $data[0],
+			'CODCIDADE' => $data[1],
+			'RUA' => $data[2],
+			':BAIRRO' => $data[3]		
+		
+		);
+
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+	}
 }

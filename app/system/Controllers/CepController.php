@@ -17,7 +17,9 @@ class CepController
 	public function GetCeps($request, $response, $args){
 
 		$cep = new \App\system\Models\CEP();
-		$c = $cep->selectCep(2); //O parametro 2 indica que a seleção deverá retornar todos as informações do cep cadastrado
+		$c = $cep->selectCodPostal(2); //O parametro 2 indica que a seleção deverá retornar todos as informações do cep cadastrado
+
+		
 
 		PainelController::AbrirContent('CEPS');
 		PainelController::GetExibir('tableCeps', $c);
@@ -39,9 +41,53 @@ class CepController
 			PainelController::GetExibir('formCep', $cids);
 			PainelController::FecharContent();
 
+}
 
 
-	}
+public function GetEditarEndereco($request, $response, $args){
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $cep = new \App\system\Models\CEP();
+        $ceps = $cep->selectCEP($args['cod']);
+
+
+        var_dump('$ceps');
+        $cid = new \App\system\Models\Cidades();
+        $cids = $cid ->select();
+        $dados = array(
+        	'CIDADES' => $cids,
+            'CEP' => $ceps
+            
+        );
+
+        PainelController::AbrirContent('Editar Endereço');
+        PainelController::GetExibir('formEditarEndereco', $dados);
+        PainelController::FecharContent();
+    }
+
+
+
+		public function PostEditarEndereco($request, $response, $args){
+
+        \App\system\Models\Validacao::validarLogin(1);
+
+        $cep = $_POST['cep'];
+        $codCidade = $_POST['codCidade'];
+        $rua = $_POST['rua'];
+        $bairro = $_POST['bairro'];
+        
+
+        $dados = array($cep, $codCidade, $rua, $bairro);
+
+        $end = new \App\system\Models\CEP();
+        $result = $end->editar($dados, $args['cod']);
+
+
+        header("Location: " . $GLOBALS['$urlpadrao'] . "painel/enderecos/editar/". $args['cod'] ."?status=1");
+
+    }
+
+	
 
 	public function PostInserir(){
 
@@ -67,16 +113,17 @@ class CepController
 
 	}
 
-	public function DeleteCep($request, $response, $args){
-
+	public function Delete($request, $response, $args){
+		
 		//Instancia a classe model CEP, responsável pelas regras para manter o objeto cep
 		$cep = new \App\system\Models\CEP();
 
 		//Recebe o resultado da exclusão
-		$result = $cep->excluir($args['codcep']);
+		$result = $cep->excluir($args['cod']);
 
 		//Retorna para a página de cadastro de cep
-		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/cidade");
+	
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/enderecos");
 
 	}
 	
