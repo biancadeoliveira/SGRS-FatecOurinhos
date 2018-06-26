@@ -20,13 +20,11 @@ class PedidoGeralDAO
 	public function insert($data){
 
 
-		$a = 'INSERT INTO pedidogeral (cod, codEndereco, codMesa, estado) VALUES (:COD, :CODENRECO,:CODMESA, :ESTADO)';
+		$a = 'INSERT INTO pedidogeral (codMesa, estado) VALUES (:CODMESA, :ESTADO)';
 		
 		$var = array(
-			':COD' => $data[0],
-			':CODENRECO' => $data[1],
-			':CODMESA' =>  $data[2],
-			':ESTADO'=> $data[3]
+			':CODMESA' =>  $data[0],
+			':ESTADO'=> $data[1]
 			);
 
 		// $this->executar($a, 'executarQuery', $var);

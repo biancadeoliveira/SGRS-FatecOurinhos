@@ -82,6 +82,31 @@ class MesaController
 
 	}
 
+	public function GetMesaPedidos($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
+
+		$mesa = new \App\system\Models\Mesa();
+
+		$result = $mesa->selectPedidosMesa($args['idmesa']);
+
+
+        $prods = $mesa->select();
+
+        $dados = array(
+        	'mesa' => $args['idmesa'],
+        	'produtos' => $result,
+            'mesas' => $prods
+        );
+
+        //var_dump($result);
+
+        PainelController::AbrirContent('Mesas');
+        PainelController::GetExibir('tableMesas2', $dados);
+        PainelController::FecharContent();
+
+	}
+
 	public function DeleteMesa($request, $response, $args){
 
 		\App\system\Models\Validacao::validarLogin(1);
@@ -91,6 +116,23 @@ class MesaController
 		$result = $mesa->excluir($args['idmesa']);
 
 		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/mesa");
+	
+
+	}
+
+	public function FecharMesa($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
+
+		$mesa = new \App\system\Models\Mesa();
+
+		echo $args['idmesa'];
+
+		$result = $mesa->encerrar($args['idmesa']);
+
+
+
+		header("Location: " . $GLOBALS['$urlpadrao'] . "painel/mesas");
 	
 
 	}

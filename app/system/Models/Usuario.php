@@ -222,7 +222,20 @@ class Usuario
 	}
 
 
-	//funao para buscar um determinado usuário pelo cpf
+	//Editar usuário do sistema
+	public function editarUsuario($dados, $cod){
+
+		
+		 	$dao = new \App\system\Models\UsuarioDAO();
+		 	
+		 	$dao->update($dados, $cod);
+
+		// }
+
+	}
+
+
+	//funao para verificar se um determinado cpf esta cadastrado no banco
 	public function buscarCPF($cpf){
 
 		$dao = new \App\system\Models\UsuarioDAO();
@@ -235,6 +248,26 @@ class Usuario
 			$this->setSenha($result[0]['senha']);
 			$this->setFuncao($result[0]['funcao']);
 			return true;
+		} else {
+			return false;
+		}
+
+
+	}
+
+	//Função que retorna os dados di 
+	public function selectCPF($cpf){
+
+		$dao = new \App\system\Models\UsuarioDAO();
+		
+		$result = $dao->selecionarUsuarioCPF($cpf);
+
+		if (count($result) == 1) {
+			$this->setCpf($result[0]['cpf']);
+			$this->setNome($result[0]['nome']);
+			$this->setSenha($result[0]['senha']);
+			$this->setFuncao($result[0]['funcao']);
+			return $result;
 		} else {
 			return false;
 		}

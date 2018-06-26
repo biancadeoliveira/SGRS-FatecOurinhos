@@ -100,20 +100,20 @@ class Pedidos
 		return $dados;
 	}
 
-	public function inserir(){
+	public function inserir($dados){
 
-		$dados = $this->getDados();
-		$cn = $this->getDadosNull();
+//		$dados = $this->getDados();
+//		$cn = $this->getDadosNull();
 		
-		$r = Validacao::verificarNullGeral($cn, $dados);
+		// $r = Validacao::verificarNullGeral($cn, $dados);
 
-		if ($r == true) {
-		 	return ("Erro! Existem valores em branco");
-		 	//echo("Erro! Existem valores em branco");
-		} else {
-		 	$dao = new \App\system\Models\ItemDAO();
-		 	return $dao->insert($dados);
-		}
+		// if ($r == true) {
+		//  	return ("Erro! Existem valores em branco");
+		//  	//echo("Erro! Existem valores em branco");
+		// } else {
+		 	$dao = new \App\system\Models\PedidosDAO();
+		 	return $dao->inserir($dados);
+		//}
 
 }
 		public function excluir($id){
@@ -123,9 +123,29 @@ class Pedidos
 
 
 	public function select(){
-
 		 	$dao = new \App\system\Models\itemDAO();
 		 	return $dao->select();
+	}
+
+
+	public function verificarPedidoGeral($mesa){
+		$dao = new \App\system\Models\PedidosDAO();
+		$cod = $dao->SelecionarPedidoGeralMesa($mesa);
+		
+		if(count($cod) == 0){
+			echo "Mesa fechada";
+			
+			$data = array($mesa, "Aberta");
+
+			$d = new \App\system\Models\PedidoGeral();
+			$d->inserirPgeral($data);	
+			$cod = $dao->SelecionarPedidoGeralMesa($mesa);
+
+
+		}
+
+		return $cod;
+
 
 	}
 

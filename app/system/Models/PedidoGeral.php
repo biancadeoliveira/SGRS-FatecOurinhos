@@ -14,8 +14,8 @@ namespace App\system\Models;
 class PedidoGeral
 {
 
-	private $cod
-	private $codEndereço
+	private $cod;
+	private $codEndereço;
 	private $codMesa;
 	private $estado;
 
@@ -31,7 +31,7 @@ class PedidoGeral
 		if(!empty($dados) && !is_null($dados)){
 			$this->setDados($dados);
 		}
-
+	}
 
 //codigo do pedido geral
 	public function getCod(){
@@ -73,20 +73,20 @@ class PedidoGeral
 
 	//Incluir Pedido geral
 
-	public function inserirPgeral(){
+	public function inserirPgeral($dados){
 
-		$dados = $this->getDados();
-		$cn = $this->getCamposNull();
+		//$dados = $this->getDados();
+		//$cn = $this->getCamposNull();
 		
-		$r = Validacao::verificarNullGeral($cn, $dados);
+		//$r = Validacao::verificarNullGeral($cn, $dados);
 
-		if ($r == true) {
-		 	return ("Erro! Existem valores em branco");
-		 	// echo("Erro! Existem valores em branco");
-		} else {
+		// if ($r == true) {
+		//  	return ("Erro! Existem valores em branco");
+		//  	// echo("Erro! Existem valores em branco");
+		// } else {
 		 	$dao = new \App\system\Models\PedidoGeralDAO();
 		 	return $dao->insert($dados);
-		}
+		//}
 	}
 
 	public function select(){

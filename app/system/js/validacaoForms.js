@@ -48,3 +48,8 @@ function manageGuia(total, n){
 	document.getElementById('g'+n).classList.add('active');
 
 }
+
+
+
+//PEDIDOS
+

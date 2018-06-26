@@ -87,4 +87,30 @@ class mesaDAO
 		return $r;
 	}
 
+	//Método para excluir uma mesa
+	public function selectPedidos($id){
+
+		$a = "SELECT produto.*, pedido.codPedido, pedidogeral.cod AS pkPedidoGeral FROM pedidogeral, pedido, item, produto WHERE pedidogeral.codMesa = :CODMESA AND pedidogeral.cod = pedido.codPedidoGeral AND item.codPedido = pedido.codPedido AND produto.codProduto = item.codProduto AND pedidogeral.estado = 'Aberta' ORDER BY item.codItem;";
+
+		$var = array(
+			':CODMESA' => $id
+		);
+
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarSelect', $var);
+		return $r;
+	}
+
+	public function encerrar($id){
+
+
+		$a = "UPDATE pedidogeral SET estado = 'Fechada' WHERE codMesa = :ID AND estado = 'Aberta'";
+		
+			$var = array(
+			':ID' => $id
+		);
+
+		// $this->executar($a, 'executarQuery', $var);
+		$r = App\system\Helpers\SqlHelper::executar($a, 'executarQuery', $var);
+	}
+
 }

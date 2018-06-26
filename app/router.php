@@ -63,7 +63,11 @@ $app->get('/painel/endereco/add', App\system\Controllers\CepController::class. '
 $app->post('/painel/endereco/add', App\system\Controllers\CepController::class. ':PostInserir');
 
 //Rota para exclusão de um endereço, o código do endereço é passado atraves da rota, o controler captura esse numero de identificação e executa os métodos responsáveis pela exclusão
-$app->get('/painel/endereco/delete/{codcep}', App\system\Controllers\CepController::class. ':DeleteCep');
+$app->get('/painel/enderecos/delete/{cod}', App\system\Controllers\CepController::class. ':Delete');
+
+$app->get('/painel/enderecos/editar/{cod}', App\system\Controllers\CepController::class. ':GetEditarEndereco');
+
+$app->post('/painel/enderecos/editar/{cod}', App\system\Controllers\CepController::class. ':PostEditarEndereco');
 
 
 /*
@@ -75,10 +79,10 @@ $app->get('/painel/endereco/delete/{codcep}', App\system\Controllers\CepControll
 */
 
 //Exibe uma página com uma tabela contendo todos as cidades cadastrados no sistema
-$app->get('/painel/cidades', App\system\Controllers\CidadesController::class. ':GetInserir');
+$app->get('/painel/cidades', App\system\Controllers\CidadesController::class. ':GetCidades');
 
 //Exibe a página com o formulário para inserir uma nova cidade ao sistema
-$app->get('/painel/cidade/add', App\system\Controllers\CidadesController::class. ':PostInserir');
+$app->get('/painel/cidade/add', App\system\Controllers\CidadesController::class. ':GetInserir');
 
 //Rota que captura os dados enviados pelo formulário, a partir do método post e que executa os métodos responsáveis por cadastrar as cidades no banco
 $app->post('/painel/cidade/add', App\system\Controllers\CidadesController::class. ':PostInserir');
@@ -159,6 +163,11 @@ $app->get('/painel/usuario/add', App\system\Controllers\UsuarioController::class
 //Cadastra um novo usuário no sistema
 $app->post('/painel/usuario/add', App\system\Controllers\UsuarioController::class. ':PostInserirUsuario');
 
+//Exibe página para editar um usuário
+$app->get('/painel/usuario/editar/{cpf}', App\system\Controllers\UsuarioController::class. ':GetEditarUsuario');
+
+$app->post('/painel/usuario/editar/{cpf}', App\system\Controllers\UsuarioController::class. ':PostEditarUsuario');
+
 //Exclui um usuário cadastrado no sistema
 $app->get('/painel/usuario/delete/{cod}', App\system\Controllers\UsuarioController::class. ':Delete');
 
@@ -172,8 +181,9 @@ $app->get('/painel/usuario/delete/{cod}', App\system\Controllers\UsuarioControll
 */
 
 //RESERVA
-$app->get('/painel/reservas', App\system\Controllers\ReservaController::class. ':GetInserirReserva');
-$app->post('/painel/reservas', App\system\Controllers\ReservaController::class. ':PostInserirReserva');
+$app->get('/painel/reservas', App\system\Controllers\ReservaController::class. ':GetReserva');
+$app->get('/painel/reserva/add', App\system\Controllers\ReservaController::class. ':GetInserirReserva');
+$app->post('/painel/reserva/add', App\system\Controllers\ReservaController::class. ':PostInserirReserva');
 $app->get('/painel/reservas/delete/{codReserva}', App\system\Controllers\ReservaController::class. ':DeleteReserva');
 
 
@@ -191,6 +201,8 @@ $app->get('/painel/clientes', App\system\Controllers\ClientesController::class. 
 $app->get('/painel/clientes/add', App\system\Controllers\ClientesController::class. ':GetInserir');
 $app->post('/painel/clientes/add', App\system\Controllers\ClientesController::class. ':PostInserir');
 $app->get('/painel/clientes/delete/{idcliente}', App\system\Controllers\ClientesController::class. ':DeleteCliente');
+$app->get('/painel/clientes/editar/{idcliente}', App\system\Controllers\ClientesController::class. ':GetEditarCliente');
+$app->post('/painel/clientes/editar/{idcliente}', App\system\Controllers\ClientesController::class. ':PostEditar');
 		
 
 /*
@@ -202,9 +214,11 @@ $app->get('/painel/clientes/delete/{idcliente}', App\system\Controllers\Clientes
 */
 
 //Mesa
+$app->get('/painel/mesa/{idmesa}', App\system\Controllers\MesaController::class . ':GetMesaPedidos');
 $app->get('/painel/mesas', App\system\Controllers\MesaController::class . ':GetMesas');
 $app->get('/painel/mesas/add', App\system\Controllers\MesaController::class . ':GetInserirMesa');
 $app->post('/painel/mesas/add', App\system\Controllers\MesaController::class. ':PostInserirMesa');
+$app->get('/painel/mesas/encerrar/{idmesa}', App\system\Controllers\MesaController::class. ':FecharMesa');
 
 
 /*
@@ -217,10 +231,10 @@ $app->post('/painel/mesas/add', App\system\Controllers\MesaController::class. ':
 $app->get('/painel/pedidos/add', App\system\Controllers\PedidosController::class . ':GetPedidosAdd');
 
 //Exibe a tela de confirmação de pedido
-$app->post('/painel/pedidos/add/confirmar', App\system\Controllers\MesaController::class . ':GetPedidos');
+$app->post('/painel/pedidos/add/confirmar', App\system\Controllers\PedidosController::class . ':GetPedidosConfirmar');
 
 //Recebe o pedido final
-$app->post('/painel/pedidos/add', App\system\Controllers\MesaController::class . ':GetPedidosAdd');
+$app->post('/painel/pedidos/add', App\system\Controllers\PedidosController::class . ':PostPedidosAdd');
 
 
 

@@ -72,6 +72,51 @@ class UsuarioController
 			header('Location: ' . $GLOBALS['$urlpadrao'] . 'painel/usuario');
 	}
 
+	public function GetEditarUsuario($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
+		$usuario = new \App\system\Models\Usuario();
+		$user = $usuario->selectCPF($args['cpf']);
+
+		$dados = array(
+				'Usuario' => $user
+		);
+
+		PainelController::AbrirContent('Editar: ' . $user[0]['nome']);
+		PainelController::GetExibir('formEditarUsuario', $dados);
+		PainelController::FecharContent();	
+
+	}
+
+	//Rota: /painel/usuario/editar/{cpf}
+	//Edita os dados de um usuário
+	public function PostEditarUsuario($request, $response, $args){
+
+		\App\system\Models\Validacao::validarLogin(1);
+
+
+			$cpf = $_POST['cpf'];
+			$nome = $_POST['nome'];
+			$senha = $_POST['senha'];
+			$dataNasc = $_POST['dataNasc'];
+			$rg = $_POST['rg'];
+			$telefone = $_POST['telefone'];
+			$email = $_POST['email'];
+			$funcao = $_POST['funcao'];
+			$estado = $_POST['estado'];
+			$cep = $_POST['cep'];
+			$numero = $_POST['numero'];
+			$complemento = $_POST['complemento'];
+
+			$dados = array($cpf, $nome, $senha, $dataNasc, $rg, $telefone, $email, $funcao, $estado, $cep, $numero, $complemento);
+
+			$usuario = new \App\system\Models\Usuario($dados);
+
+			$usuario->editarUsuario($dados, $args["cpf"]);
+
+			header('Location: ' . $GLOBALS['$urlpadrao'] . 'painel/usuario/editar/' . $args["cpf"]);
+	}	
+
 	//Rota: /painel/usuario/delete/{cod}
 	//Exclui um usuário do sistema
 	public function Delete($request, $response, $args){

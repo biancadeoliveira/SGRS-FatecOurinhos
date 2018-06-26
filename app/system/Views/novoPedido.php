@@ -1,17 +1,46 @@
 <div class="dados" style="clear: both;">
-
-	<form>
-		<div class="col-3">
+	<div class="col-4">
 			<?php 
-				foreach ($dados as $key => $value) {
-					echo ("<input style='width: auto' type='checkbox' name='" . $value['nome'] . "'>" . $value['nome'] );
-					echo "<br>";
+					if(isset($_GET['status'])){
+						if ($_GET['status'] == 0){
+							echo "<span class='ok'>Pedido cadastrado com sucesso!</span>";
+						}
+					} 
+				?>
+	</div>
 
-				}
+	<form method="POST" action="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/pedidos/add/confirmar')?>">
+		<div class="col-4">
 
+				<div class="form-group">
+					<h3 for="nome">Selecionar mesa </h3>
 
+					<select name="Mesa">
+						<?php foreach ($dados['Mesas'] as $key => $value) { ?>
+						<option value="<?php echo $value['codMesa'] ?>"><?php echo ('Mesa ' . $value['codMesa']);?></option>
+						<?php } ?>
+					</select>
+				</div>
+			
+			<?php 
+
+				//Produtos
+				foreach ($dados['Cardapio'] as $key => $value) { ?>
+					<div class="l-pedido <?php echo $value['nomeCat']?>">
+						<input class="qtd-pedido" type="number" id="<?php echo('qtd-'. $value['codProduto']);?>" name="<?php echo('qtd-'. $value['codProduto']);?>" placeholder="0" disabled="true">
+						<input type="checkbox" name="<?php echo $value['codProduto']; ?>" value="<?php echo $value['codProduto']; ?>" id="<?php echo $value['codProduto']; ?>" onclick="<?php echo 'verficar(' . $value['codProduto'] . ');' ?>">
+						<label for="<?php echo $value['codProduto']; ?>"><?php echo ($value['nomeCat'] . ' - ' . $value['nome'] . ' (' . $value['numProduto'] . ')'); ?></label>
+					</div>	
+
+					
+				<?php }
 
 			?>
+
+			<input class="cl-both btn-submit" type="submit" value="Próximo">
+
+		</div>
+	</form>
 
 			<style>
 		*{
@@ -28,6 +57,8 @@
 		.l-pedido{
 			font-size: 1.2em;
 			margin: 5px 0;
+			width: 50%;
+			float: left;
 		}
 
 		.l-pedido input{
@@ -114,50 +145,10 @@
 		<input type="button" onclick="filtrar()" value="Filtrar">
 	</div>
 
-	<div id="teste">
-		teste
-	</div>
-
-	<form>
-	
-		<div class="l-pedido salgado">
-			<input class="qtd-pedido" type="number" id="qtd-004" name="qtd-004" placeholder="0" disabled="true">
-			<input type="checkbox" name="004" id="004" onclick="verficar('004')">
-			<label for="004">Pizza Salgado</label>
-		</div>	
-		<div class="l-pedido pizza">
-			<input class="qtd-pedido" type="number" id="qtd-001" name="qtd-001" placeholder="0" disabled="true">
-			<input type="checkbox" name="001" id="001" onclick="verficar('001')">
-			<label for="001">Pizza de palmito</label>
-		</div>
-
-		<div class="l-pedido pizza">
-			<input class="qtd-pedido" type="number" id="qtd-002" name="qtd-002" placeholder="0" disabled="true">
-			<input type="checkbox" name="002" id="002" onclick="verficar('002')">
-			<label for="002">Pizza Croata</label>
-		</div>
-		<div class="l-pedido pizza">
-			<input class="qtd-pedido" type="number" id="qtd-003" name="qtd-003" placeholder="0" disabled="true">
-			<input type="checkbox" name="003" id="003" onclick="verficar('003')">
-			<label for="003">Pizza Strogonoff</label>
-		</div>
-		<div class="l-pedido pizza">
-			<input class="qtd-pedido" type="number" id="qtd-004" name="qtd-004" placeholder="0" disabled="true">
-			<input type="checkbox" name="004" id="004" onclick="verficar('004')">
-			<label for="004">Pizza 4 Queijos</label>
-		</div>
-		<div class="l-pedido doce">
-			<input class="qtd-pedido" type="number" id="qtd-004" name="qtd-004" placeholder="0" disabled="true">
-			<input type="checkbox" name="004" id="004" onclick="verficar('004')">
-			<label for="004">Pizza Brigadeiro</label>
-		</div>
-		
-	</form>
 
 		</div>
 		<div class="col-3">
 			
 		</div>
-	</form>
 
 </div>

@@ -15,7 +15,9 @@ class PainelController
 	public function Home(){
 
 
+		PainelController::AbrirContent('Sistema de Gerenciamento de Restaurantes e Similares');
 		PainelController::GetExibir('Home');
+		PainelController::FecharContent();
 
 	}
 
@@ -33,27 +35,55 @@ class PainelController
 
 		if ($func == 'Caixa') {
 
+			$icones = array(
+				($GLOBALS['$urlImg'] . 'icones-menu/home.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/enderecos.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/clientes.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/menu.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/home.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/reservas.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/pedidos.png'),
+				($GLOBALS['$urlImg'] . 'icones-menu/sair.png')
+			);
+
 			$menu = array (
-				'HOME' => array(
-								'Home' => ($GLOBALS['$urlpadrao'] . 'painel')
-						),
+
+				'HOME' => ($GLOBALS['$urlpadrao'] . 'painel'),
 				'Endereços' => array(
-								'Endereços' => ($GLOBALS['$urlpadrao'] . 'painel/cidade')
+								'Endereços Cadastrados' => ($GLOBALS['$urlpadrao'] . 'painel/enderecos'),
+								'Novo Endereço' => ($GLOBALS['$urlpadrao'] . 'painel/endereco/add'),
+								'Cidades Cadastradas' => ($GLOBALS['$urlpadrao'] . 'painel/cidades'),
+								'Nova Cidade' => ($GLOBALS['$urlpadrao'] . 'painel/cidade/add')
 							),
 				'Clientes' => array(
-								'Clientes' => ($GLOBALS['$urlpadrao'] . 'painel/clientes')
+								'Clientes Cadastrados' => ($GLOBALS['$urlpadrao'] . 'painel/clientes'),
+								'Novo Cliente' => ($GLOBALS['$urlpadrao'] . 'painel/clientes/add')
 							),
+
 				'Mesas' => array(
-								'Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas')
+								'Todas Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas')
+								// 'Gerenciar Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas/add')
 							),
 				'Reservas' => array(
-								'Reservas' => ($GLOBALS['$urlpadrao'] . 'reservas')
+								'Todas Reservas' => ($GLOBALS['$urlpadrao'] . 'painel/reservas'),
+								'Nova Reserva' => ($GLOBALS['$urlpadrao'] . 'painel/reserva/add')
 							),
 				'Pedidos' => array(
-								'Todos Pedidos' => ($GLOBALS['$urlpadrao'] . 'pedidos'),
-								'Novo Pedido' => ($GLOBALS['$urlpadrao'] . 'pedidos')
+								'Todos Pedidos' => ($GLOBALS['$urlpadrao'] . 'painel/pedidos'),
+								'Novo Pedido' => ($GLOBALS['$urlpadrao'] . 'painel/pedidos/add')
 							),
-				'Pagamentos' => '',
+
+
+				// 'HOME' => ($GLOBALS['$urlpadrao'] . 'painel'),
+				// 'Endereços' => ($GLOBALS['$urlpadrao'] . 'painel/cidade'),
+				// 'Usuários' => ($GLOBALS['$urlpadrao'] . 'painel/usuario'),
+				// 'Clientes' => ($GLOBALS['$urlpadrao'] . 'painel/clientes'),
+				// 'Cardápio' => ($GLOBALS['$urlpadrao'] . 'painel/categorias'),
+				// 'Mesas**' => ($GLOBALS['$urlpadrao'] . 'painel/mesas'),
+				// 'Reservas' => ($GLOBALS['$urlpadrao'] . 'painel/reservas'),
+				// 'Pedidos**' => '',
+				// 'Pagamentos**' => '',
+				// 'Relatórios**' => '',
 				'Sair' => ($GLOBALS['$urlpadrao'] . 'app/logout')
 			);
 		} else if($func == 'Gerente'){
@@ -67,7 +97,7 @@ class PainelController
 				($GLOBALS['$urlImg'] . 'icones-menu/home.png'),
 				($GLOBALS['$urlImg'] . 'icones-menu/reservas.png'),
 				($GLOBALS['$urlImg'] . 'icones-menu/pedidos.png'),
-				($GLOBALS['$urlImg'] . 'icones-menu/pagamento.png'),
+				// ($GLOBALS['$urlImg'] . 'icones-menu/pagamento.png'),
 				($GLOBALS['$urlImg'] . 'icones-menu/relatorios.png'),
 				($GLOBALS['$urlImg'] . 'icones-menu/sair.png')
 			);
@@ -96,18 +126,17 @@ class PainelController
 								'Nova Categoria' => ($GLOBALS['$urlpadrao'] . 'painel/categoria/add')
 							),
 				'Mesas' => array(
-								'Todas Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas'),
-								'Gerenciar Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/gerenciar-mesas')
+								'Todas Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas')
+								// 'Gerenciar Mesas' => ($GLOBALS['$urlpadrao'] . 'painel/mesas/add')
 							),
 				'Reservas' => array(
-								'Nova Reserva' => ($GLOBALS['$urlpadrao'] . 'reserva/add'),
-								'Todas Reservas' => ($GLOBALS['$urlpadrao'] . 'reservas')
+								'Todas Reservas' => ($GLOBALS['$urlpadrao'] . 'painel/reservas'),
+								'Nova Reserva' => ($GLOBALS['$urlpadrao'] . 'painel/reserva/add')
 							),
 				'Pedidos' => array(
-								'Todos Pedidos' => ($GLOBALS['$urlpadrao'] . 'pedidos'),
-								'Novo Pedido' => ($GLOBALS['$urlpadrao'] . 'pedidos/add')
+								'Todos Pedidos' => ($GLOBALS['$urlpadrao'] . 'painel/pedidos'),
+								'Novo Pedido' => ($GLOBALS['$urlpadrao'] . 'painel/pedidos/add')
 							),
-				'Pagamentos' => '#',
 				'Relatórios' => '#',
 
 

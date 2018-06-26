@@ -20,16 +20,15 @@ class ItemDAO{
 	public function insert($data){
 
 
-		$a = 'INSERT INTO item (codPedido, codProduto, quantidade, preco, estado, observacao) VALUES (:CODPEDIDO, :CODPRODUTO, :QUANTIDADE, :PRECO, :ESTADO, :OBSERVACAO)';
+		$a = 'INSERT INTO item (codPedido, codProduto, quantidade, estado, observacao) VALUES (:CODPEDIDO, :CODPRODUTO, :QUANTIDADE, :ESTADO, :OBSERVACAO)';
 		
 		$var = array(
 			
 			':CODPEDIDO' => $data[0],
 			':CODPRODUTO' =>  $data[1],
-			':QUANTIDADE' => $data[2],
-			':PRECO' => $data[3],
-			':ESTADO' => $data[4],
-			':OBSERVACAO' => $data[5]
+			':QUANTIDADE' => '1',
+			':ESTADO' => 'Aguardando',
+			':OBSERVACAO' => $data[2]
 		);
 
 		// $this->executar($a, 'executarQuery', $var);

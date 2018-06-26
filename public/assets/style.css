@@ -29,6 +29,26 @@ header{
 	clear: both;
 }
 
+.fecharmesa, .abrirmesa{
+	padding: 10px 20px;
+	
+	color: #fff;
+	text-align: center;
+	margin: 40px auto 0;
+}
+
+.fecharmesa{
+	background-color: #a00000;
+}
+
+.abrirmesa{
+	background-color: green;
+}
+
+a{
+	text-decoration: none;
+}
+
 #nav-sidebar{
 	height: 100vh;
 	width: 13vw;
@@ -388,3 +408,16 @@ table{
 	margin: 0 auto;
 	width: 80%;
 }
+
+.comanda h3{
+	text-align: center;
+}
+
+.comanda{
+	width: 60%;
+	background-color: #ffffffc2;
+	padding: 50px 20px;
+    font-size: 1.2em;
+    margin: 0 auto;
+}
+	

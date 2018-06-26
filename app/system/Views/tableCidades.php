@@ -26,7 +26,7 @@
 					<td><?php echo $value['codPostal'];?></td>
 					<td><?php echo $value['estado'];?></td>
 					<td><?php echo $value['pais'];?></td>
-					<td class="btn-editar"><a href="#">Editar</a></td>
+					<!-- <td class="btn-editar"><a href="#">Editar</a></td> -->
 					<td class="btn-excluir"><a href="<?php echo ($GLOBALS['$urlpadrao'] . 'painel/cidade/delete/' . $value['codCidade']);?>">Deletar</a></td>
 				</tr>
 

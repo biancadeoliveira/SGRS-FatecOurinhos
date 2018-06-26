@@ -120,11 +120,20 @@ class Mesa
 	}
 
 
-public function excluir($id){
+	public function excluir($id){
 		 	$dao = new \App\system\Models\mesaDAO();
 		 	return $dao->excluir($id);
 	}
 
+	public function encerrar($id){
+		 	$dao = new \App\system\Models\mesaDAO();
+		 	return $dao->encerrar($id);
+	}
+
+	public function selectPedidosMesa($cod){
+		$dao = new \App\system\Models\mesaDAO();
+		return $dao->selectPedidos($cod);	
+	}
 
 	public function select(){
 
@@ -134,3 +143,4 @@ public function excluir($id){
 	}
 
 }
+

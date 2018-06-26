@@ -125,20 +125,20 @@ class Item
 	}
 
 	//Incluir Item no sistema
-	public function inserir(){
+	public function inserir($data){
 
-		$dados = $this->getDados();
-		$cn = $this->getDadosNull();
+		// $dados = $this->getDados();
+		// $cn = $this->getDadosNull();
 		
-		$r = Validacao::verificarNullGeral($cn, $dados);
+		// $r = Validacao::verificarNullGeral($cn, $dados);
 
-		if ($r == true) {
-		 	return ("Erro! Existem valores em branco");
-		 	//echo("Erro! Existem valores em branco");
-		} else {
+		// if ($r == true) {
+		//  	return ("Erro! Existem valores em branco");
+		//  	//echo("Erro! Existem valores em branco");
+		// } else {
 		 	$dao = new \App\system\Models\ItemDAO();
-		 	return $dao->insert($dados);
-		}
+		 	return $dao->insert($data);
+		// }
 
 }
 		public function excluir($id){
